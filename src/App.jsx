@@ -113,15 +113,14 @@ const experiences = [
     role: "Function Owner – Brake Systems",
     period: "06/2015 — 05/2017",
     summary:
-      "Owned functions (e.g., Degradation State Mgmt, Bus Signal Monitoring), traceability in DOORS, and integration & V&V.",
-    projectsCount: 4,
-    responsibilities: [
-      "Requirements management & traceability in DOORS",
-      "Integration & verification (SIL/HIL/vehicle)",
-      "Customer alignment on interfaces and releases (JLR, Volvo, Geely)",
-    ],
-    achievements: [
-      "Presented Bosch functional safety concept in a Volvo workshop, clarifying critical points and defining a joint approach that met safety standards.",
+      "Owned the system engineering workflow for Degradation State Management and Bus Signal Monitoring in the Vehicle Motion Controller for JLR",
+      projectsCount: 2,
+	    responsibilities: [
+	      "Developed system-level design and V&V strategies (including Software-in-the-Loop validation) to improve robustness and ensure data integrity",
+	      "Designed fail-safe concepts for multiple degradation levels in the Vehicle Motion Controller, supporting safe operation of L2 autonomous driving functions",
+	    ],
+	    achievements: [
+	      "Successfully created the functions from the scratch for the customer function following the process and collaborating with all the stakeholders",
     ],
     images: [
       { src: "function_owner.jpg", alt: "Brake system diagram with functional blocks" },
@@ -224,39 +223,14 @@ const certifications = [
     title: "IBM AI Product Manager",
     issuer: "Coursera",
     issued: "20.08.2025",
-    url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/GC0OUIKU774S", // paste direct cert URL here
+    url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/GC0OUIKU774S",
   },
   {
     title: "Professional Scrum Product Owner I",
     issuer: "Scrum.org",
     issued: "28.03.2025",
-    url: "https://www.scrum.org/certificates/1203557", // paste direct cert URL here
+    url: "https://www.scrum.org/certificates/1203557",
   },
-  {
-    title: "AI for Project Managers and Scrum Masters",
-    issuer: "Coursera",
-    issued: "30.03.2025",
-    url: "https://www.coursera.org/account/accomplishments/verify/XEPP5WAKQ1EH", // paste direct cert URL here
-  },
-  {
-    title: "Introduction to Software Product Management",
-    issuer: "Coursera",
-    issued: "29.03.2025",
-    url: "https://www.coursera.org/account/accomplishments/verify/VKV1YIV0BOYZ", // paste direct cert URL here
-  },
-  {
-    title: "Self Driving Car Engineer",
-    issuer: "Udacity",
-    issued: "24.04.2019",
-    url: "https://www.udacity.com/certificate/JKPPUEPE", // paste direct cert URL here
-  },
-  {
-    title: "Modelling and Simulation using MATLAB®",
-    issuer: "iversity",
-    issued: "30.08.2014",
-    url: "https://iversity.org/verify/KtLtEL", // paste direct cert URL here
-  },
-  // add more...
 ];
 
 const values = [
@@ -325,7 +299,7 @@ const pageVariants = {
 // UI Primitives (theme)
 // ---------------------------
 const Container = ({ children }) => (
-  <div className="max-w-6xl mx-auto px-4 md:px-6">{children}</div>
+  <div className="w-full max-w-6xl mx-auto px-4 md:px-6">{children}</div>
 );
 
 const Card = ({ children, className = "" }) => (
@@ -344,7 +318,7 @@ const SectionTitle = ({ title, className = "" }) => (
 const HeaderSection = () => (
   <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between gap-8 py-6">
     {/* Left: text */}
-    <div className="flex-1 flex flex-col justify-center text-center lg:text-left">
+    <div className="flex-1 min-w-0 flex flex-col justify-center text-center lg:text-left">
       <h1 className="text-4xl font-bold text-white mb-2">{profile.name}</h1>
       <p className="text-2xl text-white/90 mb-1">{profile.title}</p>
       <p className="text-base text-white/70 mb-4">{profile.location}</p>
@@ -358,7 +332,7 @@ const HeaderSection = () => (
       <SafeImg
         src={profile.photo}
         alt={`${profile.name} profile photo`}
-        className="w-64 h-64 lg:w-80 lg:h-80 object-cover rounded-full border-4 border-[#2b4a86] shadow-xl"
+        className="w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 object-cover rounded-full border-4 border-[#2b4a86] shadow-xl"
       />
     </div>
   </div>
@@ -392,7 +366,7 @@ const HomePage = () => (
     {/* Experience Section */}
     <Card className="bg-[#0e2247]/60 border border-[#223d74] mt-6 p-8">
       <SectionTitle title="Work Experience" className="!mt-0 text-2xl" />
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {experiences.map((exp) => (
           <a
             key={exp.id}
@@ -400,7 +374,7 @@ const HomePage = () => (
             className="flex items-center gap-4 rounded-xl border border-[#223d74] bg-[#0e2247]/40 p-4 hover:bg-[#132a55] transition-colors"
           >
             {/* Logos block – supports single or multiple logos */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 shrink-0">
               {(exp.logos ?? []).map((logo, i) => (
                 <SafeImg
                   key={i}
@@ -410,10 +384,10 @@ const HomePage = () => (
                 />
               ))}
             </div>
-            <div>
-              <h3 className="font-semibold text-white text-lg">{exp.role}</h3>
-              <p className="text-sm text-white/85">{exp.company}</p>
-              <p className="text-xs text-white/60">{exp.period} • Projects: {exp.projectsCount}</p>
+            <div className="min-w-0">
+              <h3 className="font-semibold text-white text-lg leading-snug break-words">{exp.role}</h3>
+              <p className="text-sm text-white/85 leading-snug break-words">{exp.company}</p>
+              <p className="text-xs text-white/60 leading-snug">{exp.period} • Projects: {exp.projectsCount}</p>
             </div>
           </a>
         ))}
@@ -444,14 +418,12 @@ const ExperienceDetailPage = ({ experienceId }) => {
               key={i}
               src={logo}
               alt={`${exp.company} logo ${i + 1}`}
-              className="w-8 h-8 rounded-md object-contain bg-white p-1"
+              className="w-8 h-8 rounded-md object-contain bg-white p-1 shrink-0"
             />
           ))}
-          <span>
-            {exp.company} — {exp.location}
-          </span>
+          <span className="break-words">{exp.company} — {exp.location}</span>
         </div>
-        <p className="text-xs text-white/60">{exp.period} • Projects: {exp.projectsCount}</p>
+        <p className="text-xs text-white/60 leading-snug">{exp.period} • Projects: {exp.projectsCount}</p>
         <p className="mt-3 text-white/90 leading-relaxed">{exp.summary}</p>
 
         <SectionTitle title="Responsibilities" className="!mt-4" />
@@ -585,9 +557,9 @@ const HobbiesPage = () => (
             <SafeImg
               src={h.image}
               alt={`${h.title} image`}
-              className="w-24 h-24 rounded-lg object-cover border border-[#223d74]"
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg object-cover border border-[#223d74] shrink-0"
             />
-            <div>
+            <div className="min-w-0">
               <h4 className="font-semibold text-white">{h.title}</h4>
               <p className="text-sm text-white/90 mt-2 leading-relaxed">{h.text}</p>
             </div>
@@ -652,7 +624,7 @@ const App = () => {
   }, [hash]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#34495E] text-white">
+    <div className="min-h-screen flex flex-col bg-[#34495E] text-white overflow-x-hidden">
       {/* Header brand bar */}
       <header className="border-b border-[#1d3567] bg-[#34495E]">
         <Container>
