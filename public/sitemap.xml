@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://chidhukrishraj.github.io/my-portfolio/</loc></url>
+  <url><loc>https://chidhukrishraj.github.io/my-portfolio/#tools</loc></url>
+  <url><loc>https://chidhukrishraj.github.io/my-portfolio/#skills</loc></url>
+  <url><loc>https://chidhukrishraj.github.io/my-portfolio/#values</loc></url>
+  <url><loc>https://chidhukrishraj.github.io/my-portfolio/#hobbies</loc></url>
+  <url><loc>https://chidhukrishraj.github.io/my-portfolio/#contact</loc></url>
+  <!-- Optional: each experience detail -->
+  <url><loc>https://chidhukrishraj.github.io/my-portfolio/#experience/bosch-adas</loc></url>
+  <url><loc>https://chidhukrishraj.github.io/my-portfolio/#experience/bosch-technical-lead-brakes</loc></url>
+  <url><loc>https://chidhukrishraj.github.io/my-portfolio/#experience/bosch-function-owner-brakes</loc></url>
+  <url><loc>https://chidhukrishraj.github.io/my-portfolio/#experience/bosch-software-brakes</loc></url>
+</urlset>
