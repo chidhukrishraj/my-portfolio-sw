@@ -223,14 +223,39 @@ const certifications = [
     title: "IBM AI Product Manager",
     issuer: "Coursera",
     issued: "20.08.2025",
-    url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/GC0OUIKU774S",
+    url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/GC0OUIKU774S", // paste direct cert URL her
   },
   {
     title: "Professional Scrum Product Owner I",
     issuer: "Scrum.org",
     issued: "28.03.2025",
-    url: "https://www.scrum.org/certificates/1203557",
+    url: "https://www.scrum.org/certificates/1203557", // paste direct cert URL here
   },
+  {
+    title: "AI for Project Managers and Scrum Masters",
+    issuer: "Coursera",
+    issued: "30.03.2025",
+    url: "https://www.coursera.org/account/accomplishments/verify/XEPP5WAKQ1EH", // paste direct cert URL here
+  },
+  {
+    title: "Introduction to Software Product Management",
+    issuer: "Coursera",
+    issued: "29.03.2025",
+    url: "https://www.coursera.org/account/accomplishments/verify/VKV1YIV0BOYZ", // paste direct cert URL here
+  },
+  {
+    title: "Self Driving Car Engineer",
+    issuer: "Udacity",
+    issued: "24.04.2019",
+    url: "https://www.udacity.com/certificate/JKPPUEPE", // paste direct cert URL here
+  },
+  {
+    title: "Modelling and Simulation using MATLAB®",
+    issuer: "iversity",
+    issued: "30.08.2014",
+    url: "https://iversity.org/verify/KtLtEL", // paste direct cert URL here
+  },
+  // add more...
 ];
 
 const values = [
