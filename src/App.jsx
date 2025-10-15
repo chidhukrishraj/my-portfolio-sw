@@ -12,8 +12,8 @@ const profile = {
   location: "Stuttgart Region, Germany",
   summary:
     "System engineer with 10+ years in ADAS & Brake Systems. Passionate about E/E architecture, system integration, and building the world’s safest vehicles. I combine deep technical expertise with a collaborative leadership style to deliver robust, high-performance automotive solutions.",
-  photo: "/profile.jpg", // put in /public
-  siteUrl: "https://chidhanandh.com", /* <-- SET YOUR ACTUAL DOMAIN HERE after deploy */
+    photo: new URL("profile.jpg", import.meta.env.BASE_URL).href, // put in /public
+  siteUrl: "https://chidhukrishraj.github.io/my-portfolio/#", /* <-- SET YOUR ACTUAL DOMAIN HERE after deploy */
   contacts: [
     { label: "Email", value: "chidhukrishraj@gmail.com", href: "mailto:chidhukrishraj@gmail.com" },
     { label: "LinkedIn", value: "linkedin.com/in/chidhanandh-krishnaraj-172b9688", href: "https://www.linkedin.com/in/chidhanandh-krishnaraj-172b9688/" },
