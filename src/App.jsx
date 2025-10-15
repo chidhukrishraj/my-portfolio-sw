@@ -1,4 +1,4 @@
-// src/App.js
+// src/App.jsx
 
 import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,13 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 // ---------------------------------------
 // NOTE ABOUT ASSETS / BUGFIX
 // ---------------------------------------
-// The previous version used `new URL('x', import.meta.env.BASE_URL).href` which
-// threw: TypeError: import.meta.env is undefined (in sandbox/non-Vite contexts).
-// This rewrite switches to simple relative paths like "profile.jpg" so it works
-// both locally and on GitHub Pages without relying on `import.meta`.
-// Put images and cv.pdf in your project's public/ folder.
+// Using plain relative paths so it works with GitHub Pages (no import.meta.env).
+// Put images/logos/pdf in the /public folder (e.g., public/profile.jpg).
 
-// Small helper to gracefully handle missing images (adds a border + alt text)
 const SafeImg = ({ src, alt, className = "" }) => {
   const [ok, setOk] = useState(true);
   return ok ? (
@@ -24,40 +20,45 @@ const SafeImg = ({ src, alt, className = "" }) => {
       loading="lazy"
     />
   ) : (
-    <div className={`flex items-center justify-center bg-black/10 text-white/70 text-xs ${className}`}
-         role="img" aria-label={alt}>
+    <div
+      className={`flex items-center justify-center bg-black/10 text-white/70 text-xs ${className}`}
+      role="img"
+      aria-label={alt}
+    >
       image not found
     </div>
   );
 };
 
 // ---------------------------
-// Profile Data (EDIT ME)
+// Profile Data
 // ---------------------------
 const profile = {
   name: "Chidhanandh Krishnaraj",
-  title: "System-/Software Engineer (Automotive)",
+  title: "System Engineer / Product Owner",
   location: "Stuttgart Region, Germany",
-  summary:
-    "System engineer with 10+ years in ADAS & Brake Systems. Passionate about E/E architecture, system integration, and building the world’s safest vehicles. I combine deep technical expertise with a collaborative leadership style to deliver robust, high-performance automotive solutions.",
-  // IMPORTANT: keep files in /public and reference them without a leading slash
-  // so they resolve correctly at /my-portfolio/ on GitHub Pages.
+  summary: [
+    <p key="line1"><strong>My passion lives at the crossroads of technology, safety, creativity, and innovation.</strong></p>,
+    <p key="line2">System Engineer and Product Owner with over 10 years of experience in embedded systems and safety-critical applications. Strong focus on sensor integration, control algorithms, and system analysis across multiple domains.</p>,
+    <p key="line3">Extensive hands-on expertise in requirements management (DOORS), system modeling (UML, Simulink, ASCET), and verification & validation (SIL, HIL, field testing). Proven knowledge of functional safety (ISO 26262, ASIL D) and process compliance (Automotive SPICE).</p>,
+    <p key="line4">Skilled in collaborating with international cross-functional teams – spanning systems, hardware, and software – and in communicating with customers and stakeholders. Driven to apply innovation in embedded technologies to make systems smarter, safer, and more reliable, always with the goal of improving everyday life — in automotive and beyond.</p>,
+  ],
   photo: "profile.jpg",
-  siteUrl: "https://chidhukrishraj.github.io/my-portfolio", // set to your live URL
+  siteUrl: "https://chidhukrishraj.github.io/my-portfolio",
   contacts: [
-    { label: "Email", value: "chidhukrishraj@gmail.com", href: "mailto:chidhukrishraj@gmail.com" },
     { label: "LinkedIn", value: "linkedin.com/in/chidhanandh-krishnaraj-172b9688", href: "https://www.linkedin.com/in/chidhanandh-krishnaraj-172b9688/" },
     { label: "GitHub", value: "github.com/chidhanandh", href: "https://github.com/chidhanandh" },
   ],
 };
 
 // ---------------------------
-// Experience Data (EDIT ME)
+// Experience Data
 // ---------------------------
 const experiences = [
   {
     id: "bosch-adas",
     company: "Robert Bosch GmbH",
+    logos: ["bosch_logo.png"],
     client: "OEMs: Daimler, Audi, Porsche, CARIAD",
     location: "Leonberg, Germany",
     role: "Product Owner / System Engineer – ADAS (Automated Parking)",
@@ -83,6 +84,7 @@ const experiences = [
   {
     id: "bosch-technical-lead-brakes",
     company: "Robert Bosch GmbH (via Technology & Strategy)",
+    logos: ["bosch_logo.png", "ts_logo.png"], // show both Bosch and T&S
     location: "Abstatt, Germany",
     role: "Technical Lead – Brake Systems (Vehicle Motion)",
     period: "06/2017 — 08/2019",
@@ -106,6 +108,7 @@ const experiences = [
   {
     id: "bosch-function-owner-brakes",
     company: "Robert Bosch GmbH (via Technology & Strategy)",
+    logos: ["bosch_logo.png", "ts_logo.png"],
     location: "Abstatt, Germany",
     role: "Function Owner – Brake Systems",
     period: "06/2015 — 05/2017",
@@ -127,6 +130,7 @@ const experiences = [
   {
     id: "bosch-software-brakes",
     company: "Robert Bosch GmbH (via Technology & Strategy)",
+    logos: ["bosch_logo.png", "ts_logo.png"],
     location: "Abstatt, Germany",
     role: "Software/Systems Engineer – Brake Systems",
     period: "03/2013 — 05/2015",
@@ -161,21 +165,134 @@ const tools = [
 ];
 
 const skills = {
-  key: ["E/E Architecture", "System Integration", "Verification & Validation", "Functional Safety (ISO 26262)", "ASPICE"],
-  technical: ["C/C++", "Python", "MATLAB", "UML", "Simulink", "ASCET"],
-  buses: ["CAN", "LIN", "FlexRay", "Automotive Ethernet", "PCIe (basics)"],
+  system: [
+    "E/E Architecture",
+    "System Integration",
+    "Interface Definition",
+    "Requirements Management (DOORS, Docs-as-Code)",
+    "Functional & Safety Concepts",
+  ],
+  verification: [
+    "Verification & Validation: SIL/HIL (CarMaker, Labcar)",
+    "Field Testing & Data Analysis",
+    "GoogleTest, RQM, Code Reviews",
+  ],
+  technical: [
+    "C/C++",
+    "Python",
+    "MATLAB",
+    "UML (Enterprise Architect, PlantUML)",
+    "Simulink",
+    "ASCET",
+  ],
+  tools: [
+    "Build & CI/CD: Git (GitHub), CMake, Conan, Docker",
+    "Project & Requirement Management: Jira, ALM, MS Project, Quality Center",
+  ],
+  standards: ["ISO 26262 (Functional Safety)", "Automotive SPICE", "AUTOSAR"],
+  buses: ["CAN", "LIN", "FlexRay", "Ethernet", "PCIe (basics)"],
+  measurement: [
+    "Lauterbach Debugger",
+    "Vector Diagnostic Tools (CANoe, CANalyzer)",
+    "Data Loggers",
+  ],
+  management: [
+    "Project Planning & Tracking",
+    "Milestone & Release Coordination",
+    "Stakeholder Communication",
+    "Agile/Scrum (PSPO I Certified)",
+    "Backlog & Risk Management",
+  ],
+  leadership: [
+    "Team Building",
+    "Mentoring",
+    "Onboarding",
+    "Cross-functional Coordination",
+    "Technical Trainings",
+  ],
+  soft: ["Teamwork", "Leadership", "Communication", "Flexibility", "Decision Making"],
+  languages: [
+    "German: daily work at B2 level",
+    "English: fluent",
+    "Kannada: native",
+    "Hindi: fluent",
+  ],
 };
 
+const certifications = [
+  {
+    title: "IBM AI Product Manager",
+    issuer: "Coursera",
+    issued: "20.08.2025",
+    url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/GC0OUIKU774S", // paste direct cert URL here
+  },
+  {
+    title: "Professional Scrum Product Owner I",
+    issuer: "Scrum.org",
+    issued: "28.03.2025",
+    url: "https://www.scrum.org/certificates/1203557", // paste direct cert URL here
+  },
+  {
+    title: "AI for Project Managers and Scrum Masters",
+    issuer: "Coursera",
+    issued: "30.03.2025",
+    url: "https://www.coursera.org/account/accomplishments/verify/XEPP5WAKQ1EH", // paste direct cert URL here
+  },
+  {
+    title: "Introduction to Software Product Management",
+    issuer: "Coursera",
+    issued: "29.03.2025",
+    url: "https://www.coursera.org/account/accomplishments/verify/VKV1YIV0BOYZ", // paste direct cert URL here
+  },
+  {
+    title: "Self Driving Car Engineer",
+    issuer: "Udacity",
+    issued: "24.04.2019",
+    url: "https://www.udacity.com/certificate/JKPPUEPE", // paste direct cert URL here
+  },
+  {
+    title: "Modelling and Simulation using MATLAB®",
+    issuer: "iversity",
+    issued: "30.08.2014",
+    url: "https://iversity.org/verify/KtLtEL", // paste direct cert URL here
+  },
+  // add more...
+];
+
 const values = [
-  { id: "safety-performance", title: "Safety & Performance", text: "Focus on safe, robust functions that perform under extreme conditions, ensuring reliability and compliance." },
-  { id: "clarity-ownership", title: "Clarity & Ownership", text: "Champion clear specifications, complete traceability, and end-to-end ownership from requirements definition to final release." },
-  { id: "continuous-learning", title: "Continuous Learning", text: "Actively expanding knowledge in E/E topology, advanced diagnostics, and cutting-edge validation practices to stay ahead." },
-  { id: "team-first", title: "Team First", text: "Committed to mentoring, conducting practical workshops, and fostering high-performing teams that consistently deliver innovative solutions." },
+  {
+    id: "safety-performance",
+    title: "Safety & Performance",
+    text: "Focus on safe, robust functions that perform under extreme conditions, ensuring reliability and compliance.",
+  },
+  {
+    id: "clarity-ownership",
+    title: "Clarity & Ownership",
+    text: "Champion clear specifications, complete traceability, and end-to-end ownership from requirements definition to final release.",
+  },
+  {
+    id: "continuous-learning",
+    title: "Continuous Learning",
+    text: "Actively expanding knowledge in E/E topology, advanced diagnostics, and cutting-edge validation practices to stay ahead.",
+  },
+  {
+    id: "team-first",
+    title: "Team First",
+    text: "Committed to mentoring, conducting practical workshops, and fostering high-performing teams that consistently deliver innovative solutions.",
+  },
 ];
 
 const hobbies = [
-  { id: "sim-racing", title: "Sim Racing", text: "Deep dives into telemetry analysis, race strategy, and vehicle dynamics – blending passion with a practical understanding of automotive principles." },
-  { id: "photography", title: "Photography", text: "Capturing moments in automotive, cityscape, and portrait photography – a creative outlet for telling stories with light and composition." },
+  {
+    id: "sim-racing",
+    title: "Sim Racing",
+    text: "Deep dives into telemetry analysis, race strategy, and vehicle dynamics – blending passion with a practical understanding of automotive principles.",
+  },
+  {
+    id: "photography",
+    title: "Photography",
+    text: "Capturing moments in automotive, cityscape, and portrait photography – a creative outlet for telling stories with light and composition.",
+  },
   { id: "cycling", title: "Cycling", text: "Building endurance, maintaining focus, and enjoying the outdoors – a balance to technical challenges." },
 ];
 
@@ -183,10 +300,10 @@ const hobbies = [
 // Tiny Router
 // ---------------------------
 const useHashRoute = () => {
-  const [hash, setHash] = useState(() => (typeof window !== 'undefined' ? window.location.hash : '#'));
+  const [hash, setHash] = useState(() => (typeof window !== "undefined" ? window.location.hash : "#"));
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
     if (window.location.hash === "") setHash("#");
     const onHashChange = () => setHash(window.location.hash || "#");
     window.addEventListener("hashchange", onHashChange);
@@ -220,58 +337,82 @@ const SectionTitle = ({ title, className = "" }) => (
 );
 
 // ---------------------------
+// Header Section (hero)
+// ---------------------------
+const HeaderSection = () => (
+  <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between gap-8 py-6">
+    {/* Left: text */}
+    <div className="flex-1 flex flex-col justify-center text-center lg:text-left">
+      <h1 className="text-4xl font-bold text-white mb-2">{profile.name}</h1>
+      <p className="text-2xl text-white/90 mb-1">{profile.title}</p>
+      <p className="text-base text-white/70 mb-4">{profile.location}</p>
+      <div className="mt-3 text-white/90 space-y-3 max-w-3xl mx-auto lg:mx-0 text-justify leading-8">
+        {profile.summary}
+      </div>
+    </div>
+
+    {/* Right: larger profile photo */}
+    <div className="shrink-0 flex justify-center lg:justify-end items-center">
+      <SafeImg
+        src={profile.photo}
+        alt={`${profile.name} profile photo`}
+        className="w-64 h-64 lg:w-80 lg:h-80 object-cover rounded-full border-4 border-[#2b4a86] shadow-xl"
+      />
+    </div>
+  </div>
+);
+
+// ---------------------------
 // Pages
 // ---------------------------
 const HomePage = () => (
   <Container>
-    <div className="grid lg:grid-cols-[1.3fr,0.7fr] gap-6 py-6 items-center">
-      <Card className="bg-[#0e2247]/60 border border-[#223d74]">
-        <h1 className="text-3xl font-bold text-white">{profile.name}</h1>
-        <p className="text-lg text-white/90">{profile.title}</p>
-        <p className="text-sm text-white/70">{profile.location}</p>
-        <p className="mt-3 text-white/90 leading-relaxed">{profile.summary}</p>
+    {/* Hero */}
+    <Card className="bg-[#0e2247]/60 border border-[#223d74]">
+      <HeaderSection />
 
-        <div className="mt-4 flex flex-wrap gap-3">
-          {profile.contacts.map((c, i) => (
-            <a
-              key={i}
-              href={c.href}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center rounded-full border border-[#2b4a86] px-4 py-2 text-sm text-white/90 hover:bg-[#132a55] transition-colors"
-            >
-              {c.label}
-            </a>
-          ))}
-        </div>
+      {/* Contacts */}
+      <div className="mt-4 flex flex-wrap gap-3">
+        {profile.contacts.map((c, i) => (
+          <a
+            key={i}
+            href={c.href}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="inline-flex items-center rounded-full border border-[#2b4a86] px-4 py-2 text-sm text-white/90 hover:bg-[#132a55] transition-colors"
+          >
+            {c.label}
+          </a>
+        ))}
+      </div>
+    </Card>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          <a href="#experience" className="inline-flex items-center rounded-full border border-[#2b4a86] px-4 py-2 text-sm text-white/90 hover:bg-[#132a55] transition-colors">View Experience</a>
-          <a href="#contact" className="inline-flex items-center rounded-full border border-[#2b4a86] px-4 py-2 text-sm text-white/90 hover:bg-[#132a55] transition-colors">Contact Me</a>
-        </div>
-      </Card>
-
-      <Card className="flex justify-center lg:justify-end bg-[#0e2247]/60 border border-[#223d74] p-4 lg:p-6">
-        <SafeImg
-          src={profile.photo}
-          alt={`${profile.name} profile photo`}
-          className="w-28 h-28 lg:w-32 lg:h-32 object-cover rounded-full border-2 border-[#2b4a86]"
-        />
-      </Card>
-    </div>
-
-    <Card className="bg-[#0e2247]/60 border border-[#223d74] mt-6">
-      <SectionTitle title="Work Experience" className="!mt-0" />
-      <div className="space-y-3">
+    {/* Experience Section */}
+    <Card className="bg-[#0e2247]/60 border border-[#223d74] mt-6 p-8">
+      <SectionTitle title="Work Experience" className="!mt-0 text-2xl" />
+      <div className="grid md:grid-cols-2 gap-4">
         {experiences.map((exp) => (
           <a
             key={exp.id}
             href={`#experience/${exp.id}`}
-            className="block rounded-lg border border-[#223d74] bg-[#0e2247]/40 p-3 hover:bg-[#132a55] transition-colors"
+            className="flex items-center gap-4 rounded-xl border border-[#223d74] bg-[#0e2247]/40 p-4 hover:bg-[#132a55] transition-colors"
           >
-            <h3 className="font-semibold text-white">{exp.role}</h3>
-            <p className="text-sm text-white/80">{exp.company}</p>
-            <p className="text-xs text-white/60">{exp.period} • Projects: {exp.projectsCount}</p>
+            {/* Logos block – supports single or multiple logos */}
+            <div className="flex items-center gap-2">
+              {(exp.logos ?? []).map((logo, i) => (
+                <SafeImg
+                  key={i}
+                  src={logo}
+                  alt={`${exp.company} logo ${i + 1}`}
+                  className="w-10 h-10 rounded-md object-contain bg-white p-1"
+                />
+              ))}
+            </div>
+            <div>
+              <h3 className="font-semibold text-white text-lg">{exp.role}</h3>
+              <p className="text-sm text-white/85">{exp.company}</p>
+              <p className="text-xs text-white/60">{exp.period} • Projects: {exp.projectsCount}</p>
+            </div>
           </a>
         ))}
       </div>
@@ -281,23 +422,48 @@ const HomePage = () => (
 
 const ExperienceDetailPage = ({ experienceId }) => {
   const exp = useMemo(() => experiences.find((e) => e.id === experienceId), [experienceId]);
-  if (!exp) return <Container><p className="py-10 text-white/70 text-center">Experience not found. Please navigate back to the home page.</p></Container>;
+  if (!exp)
+    return (
+      <Container>
+        <Card>
+          <p className="py-10 text-white/80 text-center">
+            Experience not found. <a className="underline" href="#">Go back home</a>.
+          </p>
+        </Card>
+      </Container>
+    );
   return (
     <Container>
       <Card className="space-y-4">
         <h1 className="text-2xl font-bold text-white">{exp.role}</h1>
-        <p className="text-sm text-white/80">{exp.company} — {exp.location}</p>
+        <div className="flex items-center gap-3 text-sm text-white/80">
+          {(exp.logos ?? []).map((logo, i) => (
+            <SafeImg
+              key={i}
+              src={logo}
+              alt={`${exp.company} logo ${i + 1}`}
+              className="w-8 h-8 rounded-md object-contain bg-white p-1"
+            />
+          ))}
+          <span>
+            {exp.company} — {exp.location}
+          </span>
+        </div>
         <p className="text-xs text-white/60">{exp.period} • Projects: {exp.projectsCount}</p>
         <p className="mt-3 text-white/90 leading-relaxed">{exp.summary}</p>
 
         <SectionTitle title="Responsibilities" className="!mt-4" />
         <ul className="list-disc ml-6 space-y-1 text-white/90">
-          {exp.responsibilities.map((r, i) => <li key={i}>{r}</li>)}
+          {exp.responsibilities.map((r, i) => (
+            <li key={i}>{r}</li>
+          ))}
         </ul>
 
         <SectionTitle title="Achievements" className="!mt-4" />
         <ul className="list-disc ml-6 space-y-1 text-white/90">
-          {exp.achievements.map((a, i) => <li key={i}>{a}</li>)}
+          {exp.achievements.map((a, i) => (
+            <li key={i}>{a}</li>
+          ))}
         </ul>
 
         {exp.images?.length > 0 && (
@@ -316,50 +482,80 @@ const ExperienceDetailPage = ({ experienceId }) => {
           </>
         )}
         <div className="mt-6">
-          <a href="#experience" className="text-sm text-white/70 hover:underline">← Back to Experience List</a>
+          <a href="#experience" className="text-sm text-white/70 hover:underline">
+            ← Back to Experience List
+          </a>
         </div>
       </Card>
     </Container>
   );
 };
 
-const ToolsPage = () => (
+const SkillsPage = () => {
+  const skillGroups = [
+    { title: "System & Architecture", items: skills.system },
+    { title: "Verification & Validation", items: skills.verification },
+    { title: "Technical", items: skills.technical },
+    { title: "Tools & Platforms", items: skills.tools },
+    { title: "Standards & Processes", items: skills.standards },
+    { title: "Bus Protocols", items: skills.buses },
+    { title: "Measurement & Diagnostics", items: skills.measurement },
+    { title: "Project & Product Management", items: skills.management },
+    { title: "Leadership", items: skills.leadership },
+    { title: "Soft Skills", items: skills.soft },
+    { title: "Languages", items: skills.languages },
+  ];
+
+  return (
+    <Container>
+      <SectionTitle title="Skills & Tools" />
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {skillGroups.map((group) => (
+          <Card key={group.title}>
+            <h4 className="font-semibold text-white mb-2">{group.title}</h4>
+            <div className="flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span
+                  key={item}
+                  className="inline-block bg-[#0e2247]/50 border border-[#223d74] text-white/90 px-3 py-1 rounded-full text-xs"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Container>
+  );
+};
+
+// ---------------------------
+// Certifications Page
+// ---------------------------
+const CertificationsPage = () => (
   <Container>
-    <SectionTitle title="Tools & Platforms" />
+    <SectionTitle title="Certifications" />
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {tools.map((t) => (
-        <Card key={t.id}>
-          <h4 className="font-semibold text-white">{t.name}</h4>
-          <p className="text-sm text-white/85 mt-1">{t.what}</p>
+      {certifications.map((c, i) => (
+        <Card key={i}>
+          <h4 className="font-semibold text-white">{c.title}</h4>
+          <p className="text-sm text-white/80 mt-1">
+            {c.issuer}{c.issued ? ` • Issued: ${c.issued}` : ""}
+          </p>
+          <div className="mt-3">
+            <a
+              href={c.url}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex items-center rounded-full border border-[#2b4a86] px-3 py-1 text-xs text-white/90 hover:bg-[#132a55] transition-colors"
+            >
+              View on LinkedIn / Provider
+            </a>
+          </div>
         </Card>
       ))}
     </div>
-  </Container>
-);
-
-const SkillsPage = () => (
-  <Container>
-    <SectionTitle title="Skills" />
-    <Card>
-      <h4 className="font-semibold text-white mb-2">Key Skills</h4>
-      <div className="flex flex-wrap gap-2">
-        {skills.key.map((s) => (
-          <span key={s} className="inline-block bg-[#0e2247]/50 border border-[#223d74] text-white/90 px-3 py-1 rounded-full text-xs">{s}</span>
-        ))}
-      </div>
-      <h4 className="font-semibold text-white mt-4 mb-2">Technical</h4>
-      <div className="flex flex-wrap gap-2">
-        {skills.technical.map((s) => (
-          <span key={s} className="inline-block bg-[#0e2247]/50 border border-[#223d74] text-white/90 px-3 py-1 rounded-full text-xs">{s}</span>
-        ))}
-      </div>
-      <h4 className="font-semibold text-white mt-4 mb-2">Bus Systems</h4>
-      <div className="flex flex-wrap gap-2">
-        {skills.buses.map((s) => (
-          <span key={s} className="inline-block bg-[#0e2247]/50 border border-[#223d74] text-white/90 px-3 py-1 rounded-full text-xs">{s}</span>
-        ))}
-      </div>
-    </Card>
   </Container>
 );
 
@@ -406,7 +602,7 @@ const ContactPage = () => (
           Email Me
         </a>
         <a
-          href="cv.pdf" // file must be in public/
+          href="cv.pdf"
           className="inline-flex items-center rounded-full border border-[#2b4a86] px-4 py-2 text-sm text-white/90 hover:bg-[#132a55] transition-colors"
           download="Chidhanandh_Krishnaraj_CV.pdf"
           target="_blank"
@@ -422,13 +618,13 @@ const ContactPage = () => (
 // ---------------------------
 // App Shell with Equal-Spaced Tabs
 // ---------------------------
+const useActive = (hash, h) => {
+  const normalizedHash = hash === "" ? "#" : hash;
+  return normalizedHash === h ? "bg-[#132a55]" : "";
+};
+
 const App = () => {
   const hash = useHashRoute();
-
-  const active = (h) => {
-    const normalizedHash = hash === "" ? "#" : hash;
-    return normalizedHash === h ? "bg-[#132a55]" : "";
-  };
 
   const page = useMemo(() => {
     if (hash === "#" || hash === "") return <HomePage />;
@@ -436,8 +632,8 @@ const App = () => {
       const experienceId = hash.replace("#experience/", "");
       return <ExperienceDetailPage experienceId={experienceId} />;
     }
-    if (hash === "#tools") return <ToolsPage />;
-    if (hash === "#skills") return <SkillsPage />;
+        if (hash === "#skills") return <SkillsPage />;
+    if (hash === "#certs") return <CertificationsPage />;
     if (hash === "#values") return <ValuesPage />;
     if (hash === "#hobbies") return <HobbiesPage />;
     if (hash === "#contact") return <ContactPage />;
@@ -446,6 +642,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#34495E] text-white">
+      {/* Header brand bar */}
       <header className="border-b border-[#1d3567] bg-[#34495E]">
         <Container>
           <div className="h-16 flex items-center justify-between">
@@ -457,20 +654,22 @@ const App = () => {
           </div>
         </Container>
 
+        {/* Equal-spaced tabs */}
         <nav className="bg-[#0c1f40] border-t border-[#34495E]">
           <Container>
-            <div className="grid grid-cols-3 sm:grid-cols-6 text-sm text-white/90">
-              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${active("#")}`} href="#">Home</a>
-              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${active("#tools")}`} href="#tools">Tools</a>
-              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${active("#skills")}`} href="#skills">Skills</a>
-              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${active("#values")}`} href="#values">Values</a>
-              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${active("#hobbies")}`} href="#hobbies">Hobbies</a>
-              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${active("#contact")}`} href="#contact">Contact</a>
+            <div className="grid grid-cols-4 sm:grid-cols-6 text-sm text-white/90">
+              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#")}`} href="#">Home</a>
+              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#skills")}`} href="#skills">Skills</a>
+              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#certs")}`} href="#certs">Certifications</a>
+              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#values")}`} href="#values">Values</a>
+              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#hobbies")}`} href="#hobbies">Hobbies</a>
+              <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#contact")}`} href="#contact">Contact</a>
             </div>
           </Container>
         </nav>
       </header>
 
+      {/* Page content */}
       <AnimatePresence mode="wait">
         <motion.main
           key={hash}
@@ -485,6 +684,7 @@ const App = () => {
         </motion.main>
       </AnimatePresence>
 
+      {/* Footer */}
       <footer className="border-t border-[#1d3567] bg-[#34495E]">
         <Container>
           <div className="py-6 text-center text-xs text-white/70">
