@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // NOTE ABOUT ASSETS / BUGFIX
 // ---------------------------------------
 // Using plain relative paths so it works with GitHub Pages (no import.meta.env).
-// Put images/logos/pdf in the /public folder (e.g., public/profile.jpg).
+// Put images/logos/pdf in the /public folder, e.g. public/profile.jpg, cricket.jpg, karting.jpg
 
 const SafeImg = ({ src, alt, className = "" }) => {
   const [ok, setOk] = useState(true);
@@ -84,7 +84,7 @@ const experiences = [
   {
     id: "bosch-technical-lead-brakes",
     company: "Robert Bosch GmbH (via Technology & Strategy)",
-    logos: ["bosch_logo.png", "ts_logo.png"], // show both Bosch and T&S
+    logos: ["bosch_logo.png", "ts_logo.png"], // both Bosch and T&S
     location: "Abstatt, Germany",
     role: "Technical Lead – Brake Systems (Vehicle Motion)",
     period: "06/2017 — 08/2019",
@@ -152,7 +152,7 @@ const experiences = [
 ];
 
 // ---------------------------
-// Tools, Skills, Values, Hobbies
+// Tools, Skills, Values, Certifications, Hobbies
 // ---------------------------
 const tools = [
   { id: "doors", name: "DOORS 9.7", what: "Requirements management & traceability" },
@@ -282,18 +282,20 @@ const values = [
   },
 ];
 
+// NEW hobbies (old ones removed) with images
 const hobbies = [
   {
-    id: "sim-racing",
-    title: "Sim Racing",
-    text: "Deep dives into telemetry analysis, race strategy, and vehicle dynamics – blending passion with a practical understanding of automotive principles.",
+    id: "cricket",
+    title: "Cricket",
+    text: "Playing cricket regularly, enjoying both batting and bowling, and following competitive matches to learn strategy and teamwork.",
+    image: "cricket.jpg", // put this in public/
   },
   {
-    id: "photography",
-    title: "Photography",
-    text: "Capturing moments in automotive, cityscape, and portrait photography – a creative outlet for telling stories with light and composition.",
+    id: "go-karting",
+    title: "Go-Karting",
+    text: "Passionate about motorsports—go-karting gives me the thrill of racing while improving focus, reaction time, and control.",
+    image: "karting.jpg", // put this in public/
   },
-  { id: "cycling", title: "Cycling", text: "Building endurance, maintaining focus, and enjoying the outdoors – a balance to technical challenges." },
 ];
 
 // ---------------------------
@@ -579,8 +581,17 @@ const HobbiesPage = () => (
     <div className="grid md:grid-cols-2 gap-4">
       {hobbies.map((h) => (
         <Card key={h.id}>
-          <h4 className="font-semibold text-white">{h.title}</h4>
-          <p className="text-sm text-white/90 mt-2 leading-relaxed">{h.text}</p>
+          <div className="flex items-center gap-4">
+            <SafeImg
+              src={h.image}
+              alt={`${h.title} image`}
+              className="w-24 h-24 rounded-lg object-cover border border-[#223d74]"
+            />
+            <div>
+              <h4 className="font-semibold text-white">{h.title}</h4>
+              <p className="text-sm text-white/90 mt-2 leading-relaxed">{h.text}</p>
+            </div>
+          </div>
         </Card>
       ))}
     </div>
@@ -632,7 +643,7 @@ const App = () => {
       const experienceId = hash.replace("#experience/", "");
       return <ExperienceDetailPage experienceId={experienceId} />;
     }
-        if (hash === "#skills") return <SkillsPage />;
+    if (hash === "#skills") return <SkillsPage />;
     if (hash === "#certs") return <CertificationsPage />;
     if (hash === "#values") return <ValuesPage />;
     if (hash === "#hobbies") return <HobbiesPage />;
