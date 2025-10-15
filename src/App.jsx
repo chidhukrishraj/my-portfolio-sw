@@ -35,16 +35,16 @@ const SafeImg = ({ src, alt, className = "" }) => {
 // ---------------------------
 const profile = {
   name: "Chidhanandh Krishnaraj",
-  title: "System Engineer / Product Owner",
+  title: "Software Developer",
   location: "Stuttgart Region, Germany",
   summary: [
     <p key="line1"><strong>My passion lives at the crossroads of technology, safety, creativity, and innovation.</strong></p>,
-    <p key="line2">System Engineer and Product Owner with over 10 years of experience in embedded systems and safety-critical applications. Strong focus on sensor integration, control algorithms, and system analysis across multiple domains.</p>,
-    <p key="line3">Extensive hands-on expertise in requirements management (DOORS), system modeling (UML, Simulink, ASCET), and verification & validation (SIL, HIL, field testing). Proven knowledge of functional safety (ISO 26262, ASIL D) and process compliance (Automotive SPICE).</p>,
-    <p key="line4">Skilled in collaborating with international cross-functional teams – spanning systems, hardware, and software – and in communicating with customers and stakeholders. Driven to apply innovation in embedded technologies to make systems smarter, safer, and more reliable, always with the goal of improving everyday life — in automotive and beyond.</p>,
+    <p key="line2">Software Developer with 10+ years building reliable, high‑performance software. I design and implement clean, testable code across embedded, backend, and frontend systems, with a strong focus on data flows, interfaces, and performance.</p>,
+    <p key="line3">Hands‑on with modern tooling: version control and CI/CD (Git, GitHub Actions), build systems (CMake), containers (Docker), and automated testing. Comfortable in C/C++ and Python, with production experience using React for simple UI layers when needed.</p>,
+    <p key="line4">I collaborate closely with cross‑functional teams to translate requirements into robust architectures, iterate quickly, and ship. I care about readability, diagnostics/observability, and long‑term maintainability — building systems that are fast, safe, and a joy to work on.</p>,
   ],
   photo: "profile.jpg",
-  siteUrl: "https://chidhukrishraj.github.io/my-portfolio-sw",
+  siteUrl: "https://chidhukrishraj.github.io/my-portfolio",
   contacts: [
     { label: "LinkedIn", value: "linkedin.com/in/chidhanandh-krishnaraj-172b9688", href: "https://www.linkedin.com/in/chidhanandh-krishnaraj-172b9688/" },
     { label: "GitHub", value: "github.com/chidhanandh", href: "https://github.com/chidhanandh" },
@@ -113,14 +113,15 @@ const experiences = [
     role: "Function Owner – Brake Systems",
     period: "06/2015 — 05/2017",
     summary:
-      "Owned the system engineering workflow for Degradation State Management and Bus Signal Monitoring in the Vehicle Motion Controller for JLR",
-      projectsCount: 2,
-	    responsibilities: [
-	      "Developed system-level design and V&V strategies (including Software-in-the-Loop validation) to improve robustness and ensure data integrity",
-	      "Designed fail-safe concepts for multiple degradation levels in the Vehicle Motion Controller, supporting safe operation of L2 autonomous driving functions",
-	    ],
-	    achievements: [
-	      "Successfully created the functions from the scratch for the customer function following the process and collaborating with all the stakeholders",
+      "Owned functions (e.g., Degradation State Mgmt, Bus Signal Monitoring), traceability in DOORS, and integration & V&V.",
+    projectsCount: 4,
+    responsibilities: [
+      "Requirements management & traceability in DOORS",
+      "Integration & verification (SIL/HIL/vehicle)",
+      "Customer alignment on interfaces and releases (JLR, Volvo, Geely)",
+    ],
+    achievements: [
+      "Presented Bosch functional safety concept in a Volvo workshop, clarifying critical points and defining a joint approach that met safety standards.",
     ],
     images: [
       { src: "function_owner.jpg", alt: "Brake system diagram with functional blocks" },
@@ -223,39 +224,14 @@ const certifications = [
     title: "IBM AI Product Manager",
     issuer: "Coursera",
     issued: "20.08.2025",
-    url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/GC0OUIKU774S", // paste direct cert URL her
+    url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/GC0OUIKU774S",
   },
   {
     title: "Professional Scrum Product Owner I",
     issuer: "Scrum.org",
     issued: "28.03.2025",
-    url: "https://www.scrum.org/certificates/1203557", // paste direct cert URL here
+    url: "https://www.scrum.org/certificates/1203557",
   },
-  {
-    title: "AI for Project Managers and Scrum Masters",
-    issuer: "Coursera",
-    issued: "30.03.2025",
-    url: "https://www.coursera.org/account/accomplishments/verify/XEPP5WAKQ1EH", // paste direct cert URL here
-  },
-  {
-    title: "Introduction to Software Product Management",
-    issuer: "Coursera",
-    issued: "29.03.2025",
-    url: "https://www.coursera.org/account/accomplishments/verify/VKV1YIV0BOYZ", // paste direct cert URL here
-  },
-  {
-    title: "Self Driving Car Engineer",
-    issuer: "Udacity",
-    issued: "24.04.2019",
-    url: "https://www.udacity.com/certificate/JKPPUEPE", // paste direct cert URL here
-  },
-  {
-    title: "Modelling and Simulation using MATLAB®",
-    issuer: "iversity",
-    issued: "30.08.2014",
-    url: "https://iversity.org/verify/KtLtEL", // paste direct cert URL here
-  },
-  // add more...
 ];
 
 const values = [
