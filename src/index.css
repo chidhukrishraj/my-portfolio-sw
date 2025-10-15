@@ -5,5 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* keep links from turning default blue */
+@import "tailwindcss";
+a { color: inherit; }
+
 /* (Optional) your tiny custom tweaks can go BELOW this line */
 /* Keep it minimal; avoid body/:root background colors here */
