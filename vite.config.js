@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/my-portfolio/',   // must match repo name (with trailing slash)
+  base: '/my-portfolio-sw/',   // must match repo name (with trailing slash)
 })

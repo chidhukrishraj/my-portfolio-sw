@@ -44,7 +44,7 @@ const profile = {
     <p key="line4">Skilled in collaborating with international cross-functional teams – spanning systems, hardware, and software – and in communicating with customers and stakeholders. Driven to apply innovation in embedded technologies to make systems smarter, safer, and more reliable, always with the goal of improving everyday life — in automotive and beyond.</p>,
   ],
   photo: "profile.jpg",
-  siteUrl: "https://chidhukrishraj.github.io/my-portfolio",
+  siteUrl: "https://chidhukrishraj.github.io/my-portfolio-sw",
   contacts: [
     { label: "LinkedIn", value: "linkedin.com/in/chidhanandh-krishnaraj-172b9688", href: "https://www.linkedin.com/in/chidhanandh-krishnaraj-172b9688/" },
     { label: "GitHub", value: "github.com/chidhanandh", href: "https://github.com/chidhanandh" },

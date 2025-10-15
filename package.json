@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://chidhukrishraj.github.io/my-portfolio/",
+  "homepage": "https://chidhukrishraj.github.io/my-portfolio-sw/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

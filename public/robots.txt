@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://chidhukrishraj.github.io/my-portfolio/sitemap.xml
+Sitemap: https://chidhukrishraj.github.io/my-portfolio-sw/sitemap.xml
