@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // NOTE ABOUT ASSETS / BUGFIX
 // ---------------------------------------
 // Using plain relative paths so it works with GitHub Pages (no import.meta.env).
-// Put images/logos/pdf in the /public folder, e.g. public/profile.jpg, cricket.jpg, karting.jpg
+// Put images/logos/pdf in the /public folder.
 
 const SafeImg = ({ src, alt, className = "" }) => {
   const [ok, setOk] = useState(true);
@@ -39,12 +39,12 @@ const profile = {
   location: "Stuttgart Region, Germany",
   summary: [
     <p key="line1"><strong>My passion lives at the crossroads of technology, safety, creativity, and innovation.</strong></p>,
-    <p key="line2">Software Developer with 10+ years building reliable, high‑performance software. I design and implement clean, testable code across embedded, backend, and frontend systems, with a strong focus on data flows, interfaces, and performance.</p>,
-    <p key="line3">Hands‑on with modern tooling: version control and CI/CD (Git, GitHub Actions), build systems (CMake), containers (Docker), and automated testing. Comfortable in C/C++ and Python, with production experience using React for simple UI layers when needed.</p>,
-    <p key="line4">I collaborate closely with cross‑functional teams to translate requirements into robust architectures, iterate quickly, and ship. I care about readability, diagnostics/observability, and long‑term maintainability — building systems that are fast, safe, and a joy to work on.</p>,
+    <p key="line2">Software Developer with 10+ years in ADAS, safety-critical software, and control systems. Specialized in function development, algorithm design, and embedded C/C++ with strong experience in testing and validation.</p>,
+    <p key="line3">Hands-on with model-based development (MATLAB/Simulink, ASCET), build systems (CMake), CI/CD, and unit testing (GoogleTest). Familiar with system design, Kalman filtering, and automotive standards (ISO 26262, ASPICE).</p>,
+    <p key="line4">I collaborate closely with OEMs and cross-functional teams to design, integrate, and validate software functions that meet strict safety and performance requirements.</p>,
   ],
   photo: "profile.jpg",
-  siteUrl: "https://chidhukrishraj.github.io/my-portfolio",
+  siteUrl: "https://chidhukrishraj.github.io/my-portfolio-sw",
   contacts: [
     { label: "LinkedIn", value: "linkedin.com/in/chidhanandh-krishnaraj-172b9688", href: "https://www.linkedin.com/in/chidhanandh-krishnaraj-172b9688/" },
     { label: "GitHub", value: "github.com/chidhanandh", href: "https://github.com/chidhanandh" },
@@ -59,244 +59,127 @@ const experiences = [
     id: "bosch-adas",
     company: "Robert Bosch GmbH",
     logos: ["bosch_logo.png"],
-    client: "OEMs: Daimler, Audi, Porsche, CARIAD",
     location: "Leonberg, Germany",
-    role: "Product Owner / System Engineer – ADAS (Automated Parking)",
+    role: "Software Developer – ADAS Automated Parking",
     period: "09/2019 — Present",
     summary:
-      "Planning, tracking and release of system functions; worked on E/E architecture analysis with SW architects; coordinated SIL/HIL/vehicle validation and aligned results with OEMs.",
+      "Developing automated parking functions using MATLAB/Simulink (Stateflow) and embedded C/C++ on QNX ECUs; builds with CMake; unit tests with GoogleTest; experience with Kalman filters.",
     projectsCount: 6,
     responsibilities: [
-      "E/E architecture & interface analysis with software architects",
-      "Define V&V strategies; coordinate SIL/HIL/vehicle validation",
-      "Analyze test data and derive corrective measures",
-      "Customer communication and release alignment with OEMs",
-      "Risk analysis & escalation handling to protect cost/schedule",
+      "Function development: automated parking functions in MATLAB/Simulink and C/C++",
+      "Testing: SIL/HIL (CarMaker) and vehicle testing, results analysis and alignment with system & hardware teams",
+      "Process & safety: work in ASPICE/V-model; functions in ASIL-B context per ISO 26262",
+      "Architecture support: interface design, UML models in Enterprise Architect (reading, small updates)",
+      "Requirements & tracking: maintained OEM requirements in DOORS; tracked status in Jira",
+      "Customer alignment: coordinated with OEM teams (Daimler, Audi, JLR, Porsche)",
     ],
     achievements: [
-      "Resolved a critical escalation via risk analysis and coordination, preventing a significant project delay and cost impact.",
+      "Introduced lean concept for target hardware testing according to ISO 26262 (ASIL B), aligned with project team and customer.",
     ],
     images: [
-      { src: "adas1.jpg", alt: "ADAS system block diagram" },
-      { src: "adas2.jpg", alt: "Automated parking in action" },
+      { src: "adas_parking.jpg", alt: "Automated parking function development" },
     ],
   },
   {
-    id: "bosch-technical-lead-brakes",
-    company: "Robert Bosch GmbH (via Technology & Strategy)",
-    logos: ["bosch_logo.png", "ts_logo.png"], // both Bosch and T&S
+    id: "ts-tech-lead",
+    company: "Technology & Strategy GmbH",
+    logos: ["ts_logo.png", "bosch_logo.png"],
     location: "Abstatt, Germany",
-    role: "Technical Lead – Brake Systems (Vehicle Motion)",
-    period: "06/2017 — 08/2019",
+    role: "Technical Lead",
+    period: "09/2017 — 08/2019",
     summary:
-      "Built and led a functional team; supported project planning & releases; drove best practices and quality improvements.",
-    projectsCount: 5,
-    responsibilities: [
-      "Led a team of 12 engineers; coaching, onboarding, mentoring",
-      "Supported project planning, effort estimation, resource allocation",
-      "Drove design/code reviews and development best practices",
-      "Aligned stakeholders to meet quality and schedule",
-    ],
-    achievements: [
-      "Built a fully functional team that successfully secured multiple customer projects, expanding the department's portfolio.",
-      "Delivered multiple internal trainings & workshops for Bosch colleagues on system integration and testing methodologies.",
-    ],
-    images: [
-      { src: "technical_lead.jpg", alt: "Team collaboration on vehicle motion control" },
-    ],
-  },
-  {
-    id: "bosch-function-owner-brakes",
-    company: "Robert Bosch GmbH (via Technology & Strategy)",
-    logos: ["bosch_logo.png", "ts_logo.png"],
-    location: "Abstatt, Germany",
-    role: "Function Owner – Brake Systems",
-    period: "06/2015 — 05/2017",
-    summary:
-      "Owned functions (e.g., Degradation State Mgmt, Bus Signal Monitoring), traceability in DOORS, and integration & V&V.",
-    projectsCount: 4,
-    responsibilities: [
-      "Requirements management & traceability in DOORS",
-      "Integration & verification (SIL/HIL/vehicle)",
-      "Customer alignment on interfaces and releases (JLR, Volvo, Geely)",
-    ],
-    achievements: [
-      "Presented Bosch functional safety concept in a Volvo workshop, clarifying critical points and defining a joint approach that met safety standards.",
-    ],
-    images: [
-      { src: "function_owner.jpg", alt: "Brake system diagram with functional blocks" },
-    ],
-  },
-  {
-    id: "bosch-software-brakes",
-    company: "Robert Bosch GmbH (via Technology & Strategy)",
-    logos: ["bosch_logo.png", "ts_logo.png"],
-    location: "Abstatt, Germany",
-    role: "Software/Systems Engineer – Brake Systems",
-    period: "03/2013 — 05/2015",
-    summary:
-      "Developed C/C++ brake functions, created & executed tests (module/HIL/vehicle), and collaborated with system & HW teams.",
+      "Led a 12-person system/software team delivering vehicle dynamics functions, acting as main technical contact with customers.",
     projectsCount: 3,
     responsibilities: [
-      "Function development in C/C++ for safety-critical braking",
-      "Module, HIL and vehicle testing",
-      "Function specification with system & hardware teams",
+      "Led a 12-member team from concept to delivery of vehicle dynamics functions",
+      "Acted as primary technical interface with customers, translating requirements into specifications",
+      "Supported business development through technical contributions",
+      "Trained team members on automotive tools and braking concepts; fostered knowledge sharing",
     ],
     achievements: [
-      "Delivered a critical brake function that successfully entered series production across multiple OEMs, impacting millions of vehicles.",
+      "Directed root cause analysis during a critical phase and coordinated corrective measures, ensuring on-time release.",
     ],
     images: [
-      { src: "software_engineer.jpg", alt: "Code snippet for brake control system" },
+      { src: "tech_lead.jpg", alt: "Team leadership and training" },
+    ],
+  },
+  {
+    id: "ts-vmc",
+    company: "Technology & Strategy GmbH (for Robert Bosch GmbH)",
+    logos: ["ts_logo.png", "bosch_logo.png"],
+    location: "Abstatt, Germany",
+    role: "Function Developer – Vehicle Motion Controller (VMC)",
+    period: "06/2018 — 07/2019",
+    summary:
+      "Designed and implemented vehicle state estimation algorithms in C++ for Jaguar Land Rover within the Vehicle Motion Controller (VMC).",
+    projectsCount: 2,
+    responsibilities: [
+      "Developed estimation algorithms in C++ with ASCET support, defined I/O and interfaces",
+      "Set design and V&V strategy (incl. SIL) to ensure stability and data integrity (IMU, wheel-speed, yaw-rate)",
+      "Delivered end-to-end: concept, design, implementation, integration, testing",
+    ],
+    achievements: [
+      "Successfully migrated ASCET function into C++ implementation.",
+    ],
+    images: [
+      { src: "vmc.jpg", alt: "Vehicle Motion Controller development" },
+    ],
+  },
+  {
+    id: "ts-brake",
+    company: "Technology & Strategy GmbH (for Robert Bosch GmbH)",
+    logos: ["ts_logo.png", "bosch_logo.png"],
+    location: "Abstatt, Germany",
+    role: "Function Developer – Active Safety Brake Systems",
+    period: "09/2015 — 05/2018",
+    summary:
+      "Developed longitudinal and hold functions, as well as Sensor Signal Processing for Active Safety Brake Systems (Volvo, Geely, JLR).",
+    projectsCount: 3,
+    responsibilities: [
+      "Implemented functions using ASCET for embedded ECUs",
+      "Defined requirements, states, interfaces, and safety behavior (ISO 26262 up to ASIL D)",
+      "Executed V&V with HIL and vehicle testing to ensure timing and reliability",
+      "Acted as technical contact for system/software integration, change management, and planning",
+    ],
+    achievements: [
+      "Presented Bosch functional safety concept in a Volvo workshop, clarified critical points, and defined joint approach with customer.",
+    ],
+    images: [
+      { src: "brake_systems.jpg", alt: "Active safety brake systems development" },
     ],
   },
 ];
 
 // ---------------------------
-// Tools, Skills, Values, Certifications, Hobbies
+// Software-Focused Skills
 // ---------------------------
-const tools = [
-  { id: "doors", name: "DOORS 9.7", what: "Requirements management & traceability" },
-  { id: "jira", name: "Jira / ALM", what: "Backlog, sprint planning, and test management" },
-  { id: "enterprise-architect", name: "Enterprise Architect (UML)", what: "System modeling, architecture & interface specification" },
-  { id: "matlab-simulink", name: "MATLAB/Simulink", what: "Model-based design & prototyping" },
-  { id: "carmaker-labcar", name: "CarMaker / Labcar", what: "SIL/HIL validation and vehicle testing" },
-  { id: "canoe-canalyzer", name: "CANoe / CANalyzer", what: "Bus analysis and diagnostics" },
-  { id: "git-cmake-docker", name: "Git / CMake / Docker", what: "Build, versioning, and environments" },
-];
-
 const skills = {
-  system: [
-    "E/E Architecture",
-    "System Integration",
-    "Interface Definition",
-    "Requirements Management (DOORS, Docs-as-Code)",
-    "Functional & Safety Concepts",
-  ],
-  verification: [
-    "Verification & Validation: SIL/HIL (CarMaker, Labcar)",
-    "Field Testing & Data Analysis",
-    "GoogleTest, RQM, Code Reviews",
-  ],
-  technical: [
-    "C/C++",
-    "Python",
-    "MATLAB",
-    "UML (Enterprise Architect, PlantUML)",
-    "Simulink",
-    "ASCET",
-  ],
-  tools: [
-    "Build & CI/CD: Git (GitHub), CMake, Conan, Docker",
-    "Project & Requirement Management: Jira, ALM, MS Project, Quality Center",
-  ],
-  standards: ["ISO 26262 (Functional Safety)", "Automotive SPICE", "AUTOSAR"],
-  buses: ["CAN", "LIN", "FlexRay", "Ethernet", "PCIe (basics)"],
-  measurement: [
-    "Lauterbach Debugger",
-    "Vector Diagnostic Tools (CANoe, CANalyzer)",
-    "Data Loggers",
-  ],
-  management: [
-    "Project Planning & Tracking",
-    "Milestone & Release Coordination",
-    "Stakeholder Communication",
-    "Agile/Scrum (PSPO I Certified)",
-    "Backlog & Risk Management",
-  ],
-  leadership: [
-    "Team Building",
-    "Mentoring",
-    "Onboarding",
-    "Cross-functional Coordination",
-    "Technical Trainings",
-  ],
-  soft: ["Teamwork", "Leadership", "Communication", "Flexibility", "Decision Making"],
-  languages: [
-    "German: daily work at B2 level",
-    "English: fluent",
-    "Kannada: native",
-    "Hindi: fluent",
-  ],
+  programming: ["C/C++", "Python", "MATLAB"],
+  modelBased: ["Simulink", "ASCET"],
+  testing: ["GoogleTest", "SIL/HIL (CarMaker, Labcar)", "Vehicle Testing"],
+  buildTools: ["CMake", "Git", "CI/CD Pipelines"],
+  standards: ["ISO 26262", "Automotive SPICE"],
+  concepts: ["Algorithms", "Kalman Filter", "Control Systems"],
+  soft: ["Collaboration", "Communication", "Problem Solving"],
 };
 
+// (Keep your earlier certifications/values if you had them)
 const certifications = [
-  {
-    title: "IBM AI Product Manager",
-    issuer: "Coursera",
-    issued: "20.08.2025",
-    url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/GC0OUIKU774S", // paste direct cert URL her
-  },
-  {
-    title: "Professional Scrum Product Owner I",
-    issuer: "Scrum.org",
-    issued: "28.03.2025",
-    url: "https://www.scrum.org/certificates/1203557", // paste direct cert URL here
-  },
-  {
-    title: "AI for Project Managers and Scrum Masters",
-    issuer: "Coursera",
-    issued: "30.03.2025",
-    url: "https://www.coursera.org/account/accomplishments/verify/XEPP5WAKQ1EH", // paste direct cert URL here
-  },
-  {
-    title: "Introduction to Software Product Management",
-    issuer: "Coursera",
-    issued: "29.03.2025",
-    url: "https://www.coursera.org/account/accomplishments/verify/VKV1YIV0BOYZ", // paste direct cert URL here
-  },
-  {
-    title: "Self Driving Car Engineer",
-    issuer: "Udacity",
-    issued: "24.04.2019",
-    url: "https://www.udacity.com/certificate/JKPPUEPE", // paste direct cert URL here
-  },
-  {
-    title: "Modelling and Simulation using MATLAB®",
-    issuer: "iversity",
-    issued: "30.08.2014",
-    url: "https://iversity.org/verify/KtLtEL", // paste direct cert URL here
-  },
-  // add more...
+  { title: "IBM AI Product Manager", issuer: "Coursera", issued: "20.08.2025", url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/GC0OUIKU774S" },
+  { title: "Professional Scrum Product Owner I", issuer: "Scrum.org", issued: "28.03.2025", url: "https://www.scrum.org/certificates/1203557" },
+  { title: "Self Driving Car Engineer", issuer: "Udacity", issued: "24.04.2019", url: "https://www.udacity.com/certificate/JKPPUEPE" },
 ];
-
 
 const values = [
-  {
-    id: "safety-performance",
-    title: "Safety & Performance",
-    text: "Focus on safe, robust functions that perform under extreme conditions, ensuring reliability and compliance.",
-  },
-  {
-    id: "clarity-ownership",
-    title: "Clarity & Ownership",
-    text: "Champion clear specifications, complete traceability, and end-to-end ownership from requirements definition to final release.",
-  },
-  {
-    id: "continuous-learning",
-    title: "Continuous Learning",
-    text: "Actively expanding knowledge in E/E topology, advanced diagnostics, and cutting-edge validation practices to stay ahead.",
-  },
-  {
-    id: "team-first",
-    title: "Team First",
-    text: "Committed to mentoring, conducting practical workshops, and fostering high-performing teams that consistently deliver innovative solutions.",
-  },
+  { id: "safety-performance", title: "Safety & Performance", text: "Focus on safe, robust functions that perform under extreme conditions, ensuring reliability and compliance." },
+  { id: "clarity-ownership", title: "Clarity & Ownership", text: "Champion clear specifications, complete traceability, and end-to-end ownership from requirements definition to final release." },
+  { id: "continuous-learning", title: "Continuous Learning", text: "Actively expanding knowledge in E/E topology, advanced diagnostics, and cutting-edge validation practices to stay ahead." },
+  { id: "team-first", title: "Team First", text: "Committed to mentoring, conducting practical workshops, and fostering high-performing teams that consistently deliver innovative solutions." },
 ];
 
-// NEW hobbies (old ones removed) with images
 const hobbies = [
-  {
-    id: "cricket",
-    title: "Cricket",
-    text: "Playing cricket regularly, enjoying both batting and bowling, and following competitive matches to learn strategy and teamwork.",
-    image: "cricket.jpg", // put this in public/
-  },
-  {
-    id: "go-karting",
-    title: "Go-Karting",
-    text: "Passionate about motorsports—go-karting gives me the thrill of racing while improving focus, reaction time, and control.",
-    image: "karting.jpg", // put this in public/
-  },
+  { id: "cricket", title: "Cricket", text: "Playing cricket regularly, enjoying both batting and bowling, and following competitive matches to learn strategy and teamwork.", image: "cricket.jpg" },
+  { id: "go-karting", title: "Go-Karting", text: "Passionate about motorsports—go-karting gives me the thrill of racing while improving focus, reaction time, and control.", image: "karting.jpg" },
 ];
 
 // ---------------------------
@@ -346,7 +229,7 @@ const HeaderSection = () => (
   <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between gap-8 py-6">
     {/* Left: text */}
     <div className="flex-1 min-w-0 flex flex-col justify-center text-center lg:text-left">
-      <h1 className="text-4xl font-bold text-white mb-2">{profile.name}</h1>
+      <h1 className="text-4xl font-bold text-white mb-2 break-words">{profile.name}</h1>
       <p className="text-2xl text-white/90 mb-1">{profile.title}</p>
       <p className="text-base text-white/70 mb-4">{profile.location}</p>
       <div className="mt-3 text-white/90 space-y-3 max-w-3xl mx-auto lg:mx-0 text-justify leading-8">
@@ -448,9 +331,11 @@ const ExperienceDetailPage = ({ experienceId }) => {
               className="w-8 h-8 rounded-md object-contain bg-white p-1 shrink-0"
             />
           ))}
-          <span className="break-words">{exp.company} — {exp.location}</span>
+          <span className="break-words">
+            {exp.company} — {exp.location}
+          </span>
         </div>
-        <p className="text-xs text-white/60 leading-snug">{exp.period} • Projects: {exp.projectsCount}</p>
+        <p className="text-xs text-white/60">{exp.period} • Projects: {exp.projectsCount}</p>
         <p className="mt-3 text-white/90 leading-relaxed">{exp.summary}</p>
 
         <SectionTitle title="Responsibilities" className="!mt-4" />
@@ -493,29 +378,25 @@ const ExperienceDetailPage = ({ experienceId }) => {
 };
 
 const SkillsPage = () => {
-  const skillGroups = [
-    { title: "System & Architecture", items: skills.system },
-    { title: "Verification & Validation", items: skills.verification },
-    { title: "Technical", items: skills.technical },
-    { title: "Tools & Platforms", items: skills.tools },
-    { title: "Standards & Processes", items: skills.standards },
-    { title: "Bus Protocols", items: skills.buses },
-    { title: "Measurement & Diagnostics", items: skills.measurement },
-    { title: "Project & Product Management", items: skills.management },
-    { title: "Leadership", items: skills.leadership },
+  const groups = [
+    { title: "Programming", items: skills.programming },
+    { title: "Model-Based", items: skills.modelBased },
+    { title: "Testing", items: skills.testing },
+    { title: "Build & CI", items: skills.buildTools },
+    { title: "Standards", items: skills.standards },
+    { title: "Concepts", items: skills.concepts },
     { title: "Soft Skills", items: skills.soft },
-    { title: "Languages", items: skills.languages },
   ];
 
   return (
     <Container>
-      <SectionTitle title="Skills & Tools" />
+      <SectionTitle title="Skills" />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {skillGroups.map((group) => (
-          <Card key={group.title}>
-            <h4 className="font-semibold text-white mb-2">{group.title}</h4>
+        {groups.map((g) => (
+          <Card key={g.title}>
+            <h4 className="font-semibold text-white mb-2">{g.title}</h4>
             <div className="flex flex-wrap gap-2">
-              {group.items.map((item) => (
+              {g.items.map((item) => (
                 <span
                   key={item}
                   className="inline-block bg-[#0e2247]/50 border border-[#223d74] text-white/90 px-3 py-1 rounded-full text-xs"
@@ -531,9 +412,6 @@ const SkillsPage = () => {
   );
 };
 
-// ---------------------------
-// Certifications Page
-// ---------------------------
 const CertificationsPage = () => (
   <Container>
     <SectionTitle title="Certifications" />
@@ -551,7 +429,7 @@ const CertificationsPage = () => (
               rel="noreferrer noopener"
               className="inline-flex items-center rounded-full border border-[#2b4a86] px-3 py-1 text-xs text-white/90 hover:bg-[#132a55] transition-colors"
             >
-              View on LinkedIn / Provider
+              View Certificate
             </a>
           </div>
         </Card>
@@ -602,7 +480,7 @@ const ContactPage = () => (
     <SectionTitle title="Contact Me" />
     <Card>
       <p className="text-white/90 leading-relaxed">
-        I’m currently available for challenging roles in automotive system/software engineering and technical leadership, especially those focusing on E/E architecture, ADAS, and functional safety. Feel free to reach out to discuss potential opportunities or collaborations.
+        I’m currently available for challenging roles in software development and embedded systems. Feel free to reach out to discuss potential opportunities or collaborations.
       </p>
       <div className="mt-4 flex flex-wrap gap-3">
         <a
