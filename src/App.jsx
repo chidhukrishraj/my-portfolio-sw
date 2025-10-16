@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // NOTE ABOUT ASSETS / BUGFIX
 // ---------------------------------------
 // Using plain relative paths so it works with GitHub Pages (no import.meta.env).
-// Put images/logos/pdf in the /public folder.
+// Put images/logos/pdf in the /public folder (e.g., public/profile.jpg, bosch_logo.png, ts_logo.png).
 
 const SafeImg = ({ src, alt, className = "" }) => {
   const [ok, setOk] = useState(true);
@@ -31,7 +31,7 @@ const SafeImg = ({ src, alt, className = "" }) => {
 };
 
 // ---------------------------
-// Profile Data
+// Profile Data (Software Developer)
 // ---------------------------
 const profile = {
   name: "Chidhanandh Krishnaraj",
@@ -52,124 +52,192 @@ const profile = {
 };
 
 // ---------------------------
-// Experience Data
+// Experience Data (Software-focused, translated & organized)
 // ---------------------------
 const experiences = [
   {
-    id: "bosch-adas",
+    id: "bosch-adas-sw",
     company: "Robert Bosch GmbH",
     logos: ["bosch_logo.png"],
     location: "Leonberg, Germany",
     role: "Software Developer – ADAS Automated Parking",
     period: "09/2019 — Present",
     summary:
-      "Developing automated parking functions using MATLAB/Simulink (Stateflow) and embedded C/C++ on QNX ECUs; builds with CMake; unit tests with GoogleTest; experience with Kalman filters.",
+      "Developed automated parking functions using MATLAB/Simulink (Stateflow) and embedded C/C++ on QNX ECUs; CMake for builds and GoogleTest for unit tests. Planned and supported SIL/HIL (CarMaker) and on-road tests, analyzed results, and aligned actions with system and hardware teams.",
     projectsCount: 6,
     responsibilities: [
-      "Function development: automated parking functions in MATLAB/Simulink and C/C++",
-      "Testing: SIL/HIL (CarMaker) and vehicle testing, results analysis and alignment with system & hardware teams",
-      "Process & safety: work in ASPICE/V-model; functions in ASIL-B context per ISO 26262",
-      "Architecture support: interface design, UML models in Enterprise Architect (reading, small updates)",
-      "Requirements & tracking: maintained OEM requirements in DOORS; tracked status in Jira",
-      "Customer alignment: coordinated with OEM teams (Daimler, Audi, JLR, Porsche)",
+      "Function development in MATLAB/Simulink/Stateflow and Embedded C/C++",
+      "CMake-based builds; unit tests with GoogleTest",
+      "SIL/HIL (CarMaker) and vehicle test planning/support; results analysis",
+      "Work per Automotive SPICE and V-model; ISO 26262 ASIL B compliance",
+      "Support for component boundaries & interface design; read/update UML in Enterprise Architect",
+      "Requirements in DOORS; status tracking in Jira",
+      "Interface/integration alignment with OEM teams (Daimler, Audi, JLR, Porsche); status reporting",
     ],
     achievements: [
-      "Introduced lean concept for target hardware testing according to ISO 26262 (ASIL B), aligned with project team and customer.",
+      "Designed and introduced a lean target-hardware test concept compliant with ISO 26262 (ASIL B), aligned with project team and customer.",
     ],
     images: [
-      { src: "adas_parking.jpg", alt: "Automated parking function development" },
+      { src: "adas1.jpg", alt: "Automated parking overview" },
+      { src: "adas2.jpg", alt: "SIL/HIL validation" },
     ],
   },
   {
     id: "ts-tech-lead",
-    company: "Technology & Strategy GmbH",
+    company: "Technology & Strategy GmbH (consulting for Robert Bosch GmbH)",
     logos: ["ts_logo.png", "bosch_logo.png"],
     location: "Abstatt, Germany",
     role: "Technical Lead",
     period: "09/2017 — 08/2019",
     summary:
-      "Led a 12-person system/software team delivering vehicle dynamics functions, acting as main technical contact with customers.",
-    projectsCount: 3,
+      "Led a 12-person system/software team delivering vehicle dynamics functions end-to-end. Acted as main technical contact to translate customer requirements into clear system/software specifications, supported business development, and grew team capability with trainings.",
+    projectsCount: 5,
     responsibilities: [
-      "Led a 12-member team from concept to delivery of vehicle dynamics functions",
-      "Acted as primary technical interface with customers, translating requirements into specifications",
-      "Supported business development through technical contributions",
-      "Trained team members on automotive tools and braking concepts; fostered knowledge sharing",
+      "Lead a 12-member system/software team from concept to delivery",
+      "Translate customer needs into system/software specs; stakeholder alignment",
+      "Support bids and technical proposals (business development)",
+      "Coach/mentor/onboard; run internal trainings and reviews",
     ],
     achievements: [
-      "Directed root cause analysis during a critical phase and coordinated corrective measures, ensuring on-time release.",
+      "Drove a root-cause analysis in a critical phase and coordinated corrective actions to secure the release milestone.",
     ],
-    images: [
-      { src: "tech_lead.jpg", alt: "Team leadership and training" },
-    ],
+    images: [ { src: "technical_lead.jpg", alt: "Team collaboration" } ],
   },
   {
     id: "ts-vmc",
-    company: "Technology & Strategy GmbH (for Robert Bosch GmbH)",
+    company: "Technology & Strategy GmbH (consulting for Robert Bosch GmbH)",
     logos: ["ts_logo.png", "bosch_logo.png"],
     location: "Abstatt, Germany",
-    role: "Function Developer – Vehicle Motion Controller (VMC)",
+    role: "Function Developer – Vehicle Motion Controller (JLR)",
     period: "06/2018 — 07/2019",
     summary:
-      "Designed and implemented vehicle state estimation algorithms in C++ for Jaguar Land Rover within the Vehicle Motion Controller (VMC).",
-    projectsCount: 2,
+      "Designed vehicle state estimation algorithms for the Vehicle Motion Controller (VMC) for JLR and implemented them in C++. Defined interfaces and I/O, used ASCET in earlier stages, and applied Kalman filters. Set design and V&V strategy (incl. SIL) to ensure stability/consistency and data integrity (IMU, wheel speed, yaw rate).",
+    projectsCount: 3,
     responsibilities: [
-      "Developed estimation algorithms in C++ with ASCET support, defined I/O and interfaces",
-      "Set design and V&V strategy (incl. SIL) to ensure stability and data integrity (IMU, wheel-speed, yaw-rate)",
-      "Delivered end-to-end: concept, design, implementation, integration, testing",
+      "C++ implementation of state estimation algorithms (Kalman filters)",
+      "Interface definition and I/O specification",
+      "SIL strategy and validation for stability and data integrity",
+      "End-to-end delivery from concept to integration with system/software/test/customer teams",
     ],
     achievements: [
-      "Successfully migrated ASCET function into C++ implementation.",
+      "Ported functionality from ASCET to C++ and delivered validated C++ implementation.",
     ],
-    images: [
-      { src: "vmc.jpg", alt: "Vehicle Motion Controller development" },
-    ],
+    images: [ { src: "vmc.jpg", alt: "Vehicle motion controller" } ],
   },
   {
-    id: "ts-brake",
-    company: "Technology & Strategy GmbH (for Robert Bosch GmbH)",
+    id: "ts-brakes",
+    company: "Technology & Strategy GmbH (consulting for Robert Bosch GmbH)",
     logos: ["ts_logo.png", "bosch_logo.png"],
     location: "Abstatt, Germany",
     role: "Function Developer – Active Safety Brake Systems",
     period: "09/2015 — 05/2018",
     summary:
-      "Developed longitudinal and hold functions, as well as Sensor Signal Processing for Active Safety Brake Systems (Volvo, Geely, JLR).",
-    projectsCount: 3,
+      "Developed longitudinal and standstill functions plus Sensor Signal Processing (SSP) for Active Safety Brake Systems (Volvo, Geely, JLR) using model-based development (ASCET) on embedded ECUs. Defined requirements, states, interfaces, and safety behavior to ISO 26262 (up to ASIL D), worked per Automotive SPICE and V-model with documented reviews.",
+    projectsCount: 4,
     responsibilities: [
-      "Implemented functions using ASCET for embedded ECUs",
-      "Defined requirements, states, interfaces, and safety behavior (ISO 26262 up to ASIL D)",
-      "Executed V&V with HIL and vehicle testing to ensure timing and reliability",
-      "Acted as technical contact for system/software integration, change management, and planning",
+      "Model-based function development in ASCET on embedded ECUs",
+      "ISO 26262 compliance (up to ASIL D); ASPICE/V-model artifacts",
+      "System V&V strategy with HIL and on-road tests; ensure timing and reliability",
+      "Customer interface for integration, change management, and planning",
     ],
     achievements: [
-      "Presented Bosch functional safety concept in a Volvo workshop, clarified critical points, and defined joint approach with customer.",
+      "Presented a complex Bosch functional safety concept to Volvo in a large workshop; clarified critical points and agreed on a joint approach.",
     ],
-    images: [
-      { src: "brake_systems.jpg", alt: "Active safety brake systems development" },
-    ],
+    images: [ { src: "brakes.jpg", alt: "Active safety braking" } ],
   },
 ];
 
 // ---------------------------
-// Software-Focused Skills
+// Skills (same structure as System Engineer, tailored for SW)
 // ---------------------------
 const skills = {
-  programming: ["C/C++", "Python", "MATLAB"],
-  modelBased: ["Simulink", "ASCET"],
-  testing: ["GoogleTest", "SIL/HIL (CarMaker, Labcar)", "Vehicle Testing"],
-  buildTools: ["CMake", "Git", "CI/CD Pipelines"],
-  standards: ["ISO 26262", "Automotive SPICE"],
-  concepts: ["Algorithms", "Kalman Filter", "Control Systems"],
-  soft: ["Collaboration", "Communication", "Problem Solving"],
+  system: [
+    "E/E Architecture",
+    "System Integration",
+    "Interface Definition",
+    "Requirements Management (DOORS, Docs-as-Code)",
+    "Functional & Safety Concepts",
+  ],
+  verification: [
+    "Verification & Validation: SIL/HIL (CarMaker, Labcar)",
+    "Field Testing & Data Analysis",
+    "GoogleTest, RQM, Code Reviews",
+  ],
+  technical: [
+    "C/C++",
+    "Python",
+    "MATLAB",
+    "UML (Enterprise Architect, PlantUML)",
+    "Simulink",
+    "ASCET",
+  ],
+  tools: [
+    "Build & CI/CD: Git (GitHub), CMake, Conan, Docker",
+    "Project & Requirement Management: Jira, ALM, MS Project, Quality Center",
+  ],
+  standards: ["ISO 26262 (Functional Safety)", "Automotive SPICE", "AUTOSAR"],
+  buses: ["CAN", "LIN", "FlexRay", "Ethernet", "PCIe (basics)"],
+  measurement: [
+    "Lauterbach Debugger",
+    "Vector Diagnostic Tools (CANoe, CANalyzer)",
+    "Data Loggers",
+  ],
+  management: [
+    "Project Planning & Tracking",
+    "Milestone & Release Coordination",
+    "Stakeholder Communication",
+    "Agile/Scrum (PSPO I Certified)",
+    "Backlog & Risk Management",
+  ],
+  leadership: [
+    "Team Building",
+    "Mentoring",
+    "Onboarding",
+    "Cross-functional Coordination",
+    "Technical Trainings",
+  ],
+  soft: ["Teamwork", "Leadership", "Communication", "Flexibility", "Decision Making"],
+  languages: [
+    "German: daily work at B2 level",
+    "English: fluent",
+    "Kannada: native",
+    "Hindi: fluent",
+  ],
 };
 
-// (Keep your earlier certifications/values if you had them)
+// ---------------------------
+// Certifications (sample from earlier)
+// ---------------------------
 const certifications = [
-  { title: "IBM AI Product Manager", issuer: "Coursera", issued: "20.08.2025", url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/GC0OUIKU774S" },
-  { title: "Professional Scrum Product Owner I", issuer: "Scrum.org", issued: "28.03.2025", url: "https://www.scrum.org/certificates/1203557" },
-  { title: "Self Driving Car Engineer", issuer: "Udacity", issued: "24.04.2019", url: "https://www.udacity.com/certificate/JKPPUEPE" },
+  {
+    title: "IBM AI Product Manager",
+    issuer: "Coursera",
+    issued: "20.08.2025",
+    url: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/GC0OUIKU774S",
+  },
+  {
+    title: "Professional Scrum Product Owner I",
+    issuer: "Scrum.org",
+    issued: "28.03.2025",
+    url: "https://www.scrum.org/certificates/1203557",
+  },
+  {
+    title: "AI for Project Managers and Scrum Masters",
+    issuer: "Coursera",
+    issued: "30.03.2025",
+    url: "https://www.coursera.org/account/accomplishments/verify/XEPP5WAKQ1EH",
+  },
+  {
+    title: "Introduction to Software Product Management",
+    issuer: "Coursera",
+    issued: "29.03.2025",
+    url: "https://www.coursera.org/account/accomplishments/verify/VKV1YIV0BOYZ",
+  },
 ];
 
+// ---------------------------
+// Values
+// ---------------------------
 const values = [
   { id: "safety-performance", title: "Safety & Performance", text: "Focus on safe, robust functions that perform under extreme conditions, ensuring reliability and compliance." },
   { id: "clarity-ownership", title: "Clarity & Ownership", text: "Champion clear specifications, complete traceability, and end-to-end ownership from requirements definition to final release." },
@@ -177,17 +245,29 @@ const values = [
   { id: "team-first", title: "Team First", text: "Committed to mentoring, conducting practical workshops, and fostering high-performing teams that consistently deliver innovative solutions." },
 ];
 
+// ---------------------------
+// Hobbies (Cricket & Go-Karting)
+// ---------------------------
 const hobbies = [
-  { id: "cricket", title: "Cricket", text: "Playing cricket regularly, enjoying both batting and bowling, and following competitive matches to learn strategy and teamwork.", image: "cricket.jpg" },
-  { id: "go-karting", title: "Go-Karting", text: "Passionate about motorsports—go-karting gives me the thrill of racing while improving focus, reaction time, and control.", image: "karting.jpg" },
+  {
+    id: "cricket",
+    title: "Cricket",
+    text: "Playing cricket regularly, enjoying both batting and bowling, and following competitive matches to learn strategy and teamwork.",
+    image: "cricket.jpg",
+  },
+  {
+    id: "go-karting",
+    title: "Go-Karting",
+    text: "Passionate about motorsports—go-karting gives me the thrill of racing while improving focus, reaction time, and control.",
+    image: "karting.jpg",
+  },
 ];
 
 // ---------------------------
-// Tiny Router
+// Router
 // ---------------------------
 const useHashRoute = () => {
   const [hash, setHash] = useState(() => (typeof window !== "undefined" ? window.location.hash : "#"));
-
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.location.hash === "") setHash("#");
@@ -198,7 +278,9 @@ const useHashRoute = () => {
   return hash;
 };
 
-// Animation variants
+// ---------------------------
+// Animations
+// ---------------------------
 const pageVariants = {
   initial: { opacity: 0, y: 8 },
   in: { opacity: 1, y: 0 },
@@ -209,7 +291,7 @@ const pageVariants = {
 // UI Primitives (theme)
 // ---------------------------
 const Container = ({ children }) => (
-  <div className="w-full max-w-6xl mx-auto px-4 md:px-6">{children}</div>
+  <div className="max-w-6xl mx-auto px-4 md:px-6">{children}</div>
 );
 
 const Card = ({ children, className = "" }) => (
@@ -228,8 +310,8 @@ const SectionTitle = ({ title, className = "" }) => (
 const HeaderSection = () => (
   <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between gap-8 py-6">
     {/* Left: text */}
-    <div className="flex-1 min-w-0 flex flex-col justify-center text-center lg:text-left">
-      <h1 className="text-4xl font-bold text-white mb-2 break-words">{profile.name}</h1>
+    <div className="flex-1 flex flex-col justify-center text-center lg:text-left">
+      <h1 className="text-4xl font-bold text-white mb-2">{profile.name}</h1>
       <p className="text-2xl text-white/90 mb-1">{profile.title}</p>
       <p className="text-base text-white/70 mb-4">{profile.location}</p>
       <div className="mt-3 text-white/90 space-y-3 max-w-3xl mx-auto lg:mx-0 text-justify leading-8">
@@ -242,7 +324,7 @@ const HeaderSection = () => (
       <SafeImg
         src={profile.photo}
         alt={`${profile.name} profile photo`}
-        className="w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 object-cover rounded-full border-4 border-[#2b4a86] shadow-xl"
+        className="w-64 h-64 lg:w-80 lg:h-80 object-cover rounded-full border-4 border-[#2b4a86] shadow-xl"
       />
     </div>
   </div>
@@ -276,32 +358,36 @@ const HomePage = () => (
     {/* Experience Section */}
     <Card className="bg-[#0e2247]/60 border border-[#223d74] mt-6 p-8">
       <SectionTitle title="Work Experience" className="!mt-0 text-2xl" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {experiences.map((exp) => (
-          <a
-            key={exp.id}
-            href={`#experience/${exp.id}`}
-            className="flex items-center gap-4 rounded-xl border border-[#223d74] bg-[#0e2247]/40 p-4 hover:bg-[#132a55] transition-colors"
-          >
-            {/* Logos block – supports single or multiple logos */}
-            <div className="flex items-center gap-2 shrink-0">
-              {(exp.logos ?? []).map((logo, i) => (
-                <SafeImg
-                  key={i}
-                  src={logo}
-                  alt={`${exp.company} logo ${i + 1}`}
-                  className="w-10 h-10 rounded-md object-contain bg-white p-1"
-                />
-              ))}
-            </div>
-            <div className="min-w-0">
-              <h3 className="font-semibold text-white text-lg leading-snug break-words">{exp.role}</h3>
-              <p className="text-sm text-white/85 leading-snug break-words">{exp.company}</p>
-              <p className="text-xs text-white/60 leading-snug">{exp.period} • Projects: {exp.projectsCount}</p>
-            </div>
-          </a>
-        ))}
-      </div>
+      {experiences.length === 0 ? (
+        <p className="text-white/80">Coming soon.</p>
+      ) : (
+        <div className="grid md:grid-cols-2 gap-4">
+          {experiences.map((exp) => (
+            <a
+              key={exp.id}
+              href={`#experience/${exp.id}`}
+              className="flex items-center gap-4 rounded-xl border border-[#223d74] bg-[#0e2247]/40 p-4 hover:bg-[#132a55] transition-colors"
+            >
+              {/* Logos */}
+              <div className="flex items-center gap-2">
+                {(exp.logos ?? []).map((logo, i) => (
+                  <SafeImg
+                    key={i}
+                    src={logo}
+                    alt={`${exp.company} logo ${i + 1}`}
+                    className="w-10 h-10 rounded-md object-contain bg-white p-1"
+                  />
+                ))}
+              </div>
+              <div>
+                <h3 className="font-semibold text-white text-lg">{exp.role}</h3>
+                <p className="text-sm text-white/85">{exp.company}</p>
+                <p className="text-xs text-white/60">{exp.period} • Projects: {exp.projectsCount}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
     </Card>
   </Container>
 );
@@ -328,29 +414,33 @@ const ExperienceDetailPage = ({ experienceId }) => {
               key={i}
               src={logo}
               alt={`${exp.company} logo ${i + 1}`}
-              className="w-8 h-8 rounded-md object-contain bg-white p-1 shrink-0"
+              className="w-8 h-8 rounded-md object-contain bg-white p-1"
             />
           ))}
-          <span className="break-words">
+          <span>
             {exp.company} — {exp.location}
           </span>
         </div>
         <p className="text-xs text-white/60">{exp.period} • Projects: {exp.projectsCount}</p>
         <p className="mt-3 text-white/90 leading-relaxed">{exp.summary}</p>
 
-        <SectionTitle title="Responsibilities" className="!mt-4" />
-        <ul className="list-disc ml-6 space-y-1 text-white/90">
-          {exp.responsibilities.map((r, i) => (
-            <li key={i}>{r}</li>
-          ))}
-        </ul>
+        {exp.responsibilities && exp.responsibilities.length > 0 && (
+          <>
+            <SectionTitle title="Responsibilities" className="!mt-4" />
+            <ul className="list-disc ml-6 space-y-1 text-white/90">
+              {exp.responsibilities.map((r, i) => <li key={i}>{r}</li>)}
+            </ul>
+          </>
+        )}
 
-        <SectionTitle title="Achievements" className="!mt-4" />
-        <ul className="list-disc ml-6 space-y-1 text-white/90">
-          {exp.achievements.map((a, i) => (
-            <li key={i}>{a}</li>
-          ))}
-        </ul>
+        {exp.achievements && exp.achievements.length > 0 && (
+          <>
+            <SectionTitle title="Achievements" className="!mt-4" />
+            <ul className="list-disc ml-6 space-y-1 text-white/90">
+              {exp.achievements.map((a, i) => <li key={i}>{a}</li>)}
+            </ul>
+          </>
+        )}
 
         {exp.images?.length > 0 && (
           <>
@@ -368,9 +458,7 @@ const ExperienceDetailPage = ({ experienceId }) => {
           </>
         )}
         <div className="mt-6">
-          <a href="#experience" className="text-sm text-white/70 hover:underline">
-            ← Back to Experience List
-          </a>
+          <a href="#experience" className="text-sm text-white/70 hover:underline">← Back to Experience List</a>
         </div>
       </Card>
     </Container>
@@ -379,13 +467,17 @@ const ExperienceDetailPage = ({ experienceId }) => {
 
 const SkillsPage = () => {
   const groups = [
-    { title: "Programming", items: skills.programming },
-    { title: "Model-Based", items: skills.modelBased },
-    { title: "Testing", items: skills.testing },
-    { title: "Build & CI", items: skills.buildTools },
-    { title: "Standards", items: skills.standards },
-    { title: "Concepts", items: skills.concepts },
+    { title: "System & Architecture", items: skills.system },
+    { title: "Verification & Validation", items: skills.verification },
+    { title: "Technical", items: skills.technical },
+    { title: "Tools & Platforms", items: skills.tools },
+    { title: "Standards & Processes", items: skills.standards },
+    { title: "Bus Protocols", items: skills.buses },
+    { title: "Measurement & Diagnostics", items: skills.measurement },
+    { title: "Project & Product Management", items: skills.management },
+    { title: "Leadership", items: skills.leadership },
     { title: "Soft Skills", items: skills.soft },
+    { title: "Languages", items: skills.languages },
   ];
 
   return (
@@ -412,6 +504,9 @@ const SkillsPage = () => {
   );
 };
 
+// ---------------------------
+// Certifications Page
+// ---------------------------
 const CertificationsPage = () => (
   <Container>
     <SectionTitle title="Certifications" />
@@ -438,6 +533,9 @@ const CertificationsPage = () => (
   </Container>
 );
 
+// ---------------------------
+// Values Page
+// ---------------------------
 const ValuesPage = () => (
   <Container>
     <SectionTitle title="Personal Values & Goals" />
@@ -452,6 +550,9 @@ const ValuesPage = () => (
   </Container>
 );
 
+// ---------------------------
+// Hobbies Page
+// ---------------------------
 const HobbiesPage = () => (
   <Container>
     <SectionTitle title="Hobbies & Free Time" />
@@ -462,9 +563,9 @@ const HobbiesPage = () => (
             <SafeImg
               src={h.image}
               alt={`${h.title} image`}
-              className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg object-cover border border-[#223d74] shrink-0"
+              className="w-24 h-24 rounded-lg object-cover border border-[#223d74]"
             />
-            <div className="min-w-0">
+            <div>
               <h4 className="font-semibold text-white">{h.title}</h4>
               <p className="text-sm text-white/90 mt-2 leading-relaxed">{h.text}</p>
             </div>
@@ -475,12 +576,15 @@ const HobbiesPage = () => (
   </Container>
 );
 
+// ---------------------------
+// Contact Page
+// ---------------------------
 const ContactPage = () => (
   <Container>
     <SectionTitle title="Contact Me" />
     <Card>
       <p className="text-white/90 leading-relaxed">
-        I’m currently available for challenging roles in software development and embedded systems. Feel free to reach out to discuss potential opportunities or collaborations.
+        I’m currently available for challenging software roles in automotive and embedded systems, especially ADAS and safety-critical applications. Feel free to reach out to discuss opportunities or collaborations.
       </p>
       <div className="mt-4 flex flex-wrap gap-3">
         <a
@@ -504,7 +608,7 @@ const ContactPage = () => (
 );
 
 // ---------------------------
-// App Shell with Equal-Spaced Tabs
+// App Shell
 // ---------------------------
 const useActive = (hash, h) => {
   const normalizedHash = hash === "" ? "#" : hash;
@@ -529,7 +633,7 @@ const App = () => {
   }, [hash]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#34495E] text-white overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-[#34495E] text-white">
       {/* Header brand bar */}
       <header className="border-b border-[#1d3567] bg-[#34495E]">
         <Container>
@@ -542,10 +646,10 @@ const App = () => {
           </div>
         </Container>
 
-        {/* Equal-spaced tabs */}
+        {/* Tabs */}
         <nav className="bg-[#0c1f40] border-t border-[#34495E]">
           <Container>
-            <div className="grid grid-cols-4 sm:grid-cols-6 text-sm text-white/90">
+            <div className="grid grid-cols-3 sm:grid-cols-6 text-sm text-white/90">
               <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#")}`} href="#">Home</a>
               <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#skills")}`} href="#skills">Skills</a>
               <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#certs")}`} href="#certs">Certifications</a>
