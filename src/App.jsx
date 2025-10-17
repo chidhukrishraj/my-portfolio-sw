@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // Using plain relative paths so it works with GitHub Pages (no import.meta.env).
 // Put images/logos/pdf in the /public folder (e.g., public/profile.jpg, bosch_logo.png, ts_logo.png).
 
-const SafeImg = ({ src, alt, className = "" }) => {
+const SafeImg = ({ src, alt, className = "", onClick }) => {
   const [ok, setOk] = useState(true);
   return ok ? (
     <img
@@ -17,7 +17,9 @@ const SafeImg = ({ src, alt, className = "" }) => {
       alt={alt}
       className={className}
       onError={() => setOk(false)}
+      onClick={onClick}
       loading="lazy"
+      style={{ cursor: onClick ? "pointer" : "default" }}
     />
   ) : (
     <div
@@ -574,7 +576,20 @@ const ValuesPage = () => (
   </Container>
 );
 
-const HobbiesPage = () => (
+// Zoom Modal Component
+const ImageModal = ({ src, alt, onClose }) => (
+  <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" onClick={onClose}>
+    <img
+      src={src}
+      alt={alt}
+      className="max-h-[90%] max-w-[90%] object-contain rounded-lg shadow-lg"
+    />
+  </div>
+);
+
+const HobbiesPage = () => {
+  const [zoomed, setZoomed] = useState(null);
+  return (
   <Container>
     <SectionTitle title="Hobbies & Free Time" />
     <div className="grid md:grid-cols-2 gap-4">
@@ -584,7 +599,8 @@ const HobbiesPage = () => (
             <SafeImg
               src={h.image}
               alt={`${h.title} image`}
-              className="w-full sm:w-40 h-28 sm:h-28 rounded-lg object-cover border border-[#223d74]"
+              className="w-full sm:w-40 h-28 sm:h-28 rounded-lg object-contain border border-[#223d74] bg-white"
+              onClick={() => setZoomed(h)}
             />
             <div className="text-center sm:text-left">
               <h4 className="font-semibold text-white">{h.title}</h4>
@@ -594,9 +610,16 @@ const HobbiesPage = () => (
         </Card>
       ))}
     </div>
-  </Container>
-);
-
+    {zoomed && (
+      <ImageModal
+        src={zoomed.image}
+        alt={zoomed.title}
+        onClose={() => setZoomed(null)}
+      />
+    )}
+    </Container>
+  );
+}
 const ContactPage = () => (
   <Container>
     <SectionTitle title="Contact Me" />
