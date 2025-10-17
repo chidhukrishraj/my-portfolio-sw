@@ -52,103 +52,111 @@ const profile = {
 };
 
 // ---------------------------
-// Experience Data (Software-focused, translated & organized)
+// Experience Data (with OEM logo strips)
 // ---------------------------
 const experiences = [
   {
-    id: "bosch-adas-sw",
+    id: "bosch-adas",
     company: "Robert Bosch GmbH",
     logos: ["bosch_logo.png"],
+    oemLogos: [
+      "oem_daimler.png",
+      "oem_audi.png",
+      "oem_porsche.png",
+      "oem_volkswagen.png",
+      "oem_jlr.png",
+    ],
     location: "Leonberg, Germany",
-    role: "Software Developer – ADAS Automated Parking",
+    role: "Software Developer – ADAS (Automated Parking)",
     period: "09/2019 — Present",
     summary:
-      "Developed automated parking functions using MATLAB/Simulink (Stateflow) and embedded C/C++ on QNX ECUs; CMake for builds and GoogleTest for unit tests. Planned and supported SIL/HIL (CarMaker) and on-road tests, analyzed results, and aligned actions with system and hardware teams.",
-    projectsCount: 6,
+      "Function development for automated parking using MATLAB/Simulink (Stateflow) and embedded C/C++ on QNX ECUs; builds via CMake; unit tests with GoogleTest; Kalman-filter experience. Planned and evaluated SIL/HIL (CarMaker) and on-road tests; aligned measures with system and hardware teams. Worked within ASPICE and ISO 26262 (ASIL B) processes; supported interface/architecture topics and maintained OEM requirements in DOORS; tracked progress in Jira; coordinated with OEM teams (e.g., Daimler, Audi, JLR, Porsche).",
+    projectsCount: 5,
     responsibilities: [
-      "Function development in MATLAB/Simulink/Stateflow and Embedded C/C++",
-      "CMake-based builds; unit tests with GoogleTest",
-      "SIL/HIL (CarMaker) and vehicle test planning/support; results analysis",
-      "Work per Automotive SPICE and V-model; ISO 26262 ASIL B compliance",
-      "Support for component boundaries & interface design; read/update UML in Enterprise Architect",
-      "Requirements in DOORS; status tracking in Jira",
-      "Interface/integration alignment with OEM teams (Daimler, Audi, JLR, Porsche); status reporting",
+      "Develop and integrate automated parking functions (MATLAB/Simulink, C/C++)",
+      "Define and execute V&V (SIL/HIL with CarMaker, field tests)",
+      "Analyze results and derive corrective actions",
+      "Support E/E architecture & interface design (UML in Enterprise Architect)",
+      "Maintain requirements (DOORS), track delivery (Jira)",
+      "Coordinate with OEMs and internal stakeholders",
     ],
     achievements: [
-      "Designed and introduced a lean target-hardware test concept compliant with ISO 26262 (ASIL B), aligned with project team and customer.",
+      "Introduced a lean target-hardware testing concept compliant with ISO 26262 (ASIL B) and aligned it with the project team and customer.",
     ],
     images: [
-      { src: "adas1.jpg", alt: "Automated parking overview" },
-      { src: "adas2.jpg", alt: "SIL/HIL validation" },
+      { src: "adas1.jpg", alt: "ADAS system block diagram" },
+      { src: "adas2.jpg", alt: "Automated parking in action" },
     ],
   },
   {
     id: "ts-tech-lead",
-    company: "Technology & Strategy GmbH (consulting for Robert Bosch GmbH)",
+    company: "Technology & Strategy (onsite at Bosch)",
     logos: ["ts_logo.png", "bosch_logo.png"],
     location: "Abstatt, Germany",
-    role: "Technical Lead",
+    role: "Technical Lead – Vehicle Motion / Brake Systems",
     period: "09/2017 — 08/2019",
     summary:
-      "Led a 12-person system/software team delivering vehicle dynamics functions end-to-end. Acted as main technical contact to translate customer requirements into clear system/software specifications, supported business development, and grew team capability with trainings.",
-    projectsCount: 5,
+      "Led a 12-person system/software team delivering vehicle dynamics functions. Acted as the main technical counterpart for customers, converting needs into clear system/software specifications. Supported business development and ran trainings on automotive tools and brake-function concepts. Coordinated root-cause analysis and corrective actions to secure release milestones.",
+    
     responsibilities: [
-      "Lead a 12-member system/software team from concept to delivery",
-      "Translate customer needs into system/software specs; stakeholder alignment",
-      "Support bids and technical proposals (business development)",
-      "Coach/mentor/onboard; run internal trainings and reviews",
+      "Lead, mentor, and onboard engineers (12 people)",
+      "Plan projects, estimate efforts, allocate resources",
+      "Drive reviews and best practices; align stakeholders",
+      "Customer-facing technical ownership and communication",
     ],
     achievements: [
-      "Drove a root-cause analysis in a critical phase and coordinated corrective actions to secure the release milestone.",
+      "Directed root-cause analysis and coordinated mitigations during a critical phase, safeguarding the release date.",
     ],
-    images: [ { src: "technical_lead.jpg", alt: "Team collaboration" } ],
+    images: [{ src: "technical_lead.jpg", alt: "Team collaboration on vehicle motion control" }],
   },
   {
     id: "ts-vmc",
-    company: "Technology & Strategy GmbH (consulting for Robert Bosch GmbH)",
+    company: "Technology & Strategy (onsite at Bosch)",
     logos: ["ts_logo.png", "bosch_logo.png"],
+    oemLogos: ["oem_jlr.png"],
     location: "Abstatt, Germany",
-    role: "Function Developer – Vehicle Motion Controller (JLR)",
+    role: "Function Developer – Vehicle Motion Controller (for JLR)",
     period: "06/2018 — 07/2019",
     summary:
-      "Designed vehicle state estimation algorithms for the Vehicle Motion Controller (VMC) for JLR and implemented them in C++. Defined interfaces and I/O, used ASCET in earlier stages, and applied Kalman filters. Set design and V&V strategy (incl. SIL) to ensure stability/consistency and data integrity (IMU, wheel speed, yaw rate).",
-    projectsCount: 3,
+      "Designed and implemented vehicle-state estimation algorithms in the VMC for JLR in C++; defined interfaces and I/O; used ASCET for model-based work; applied Kalman filtering. Set design and V&V strategy (incl. SIL) to ensure stability/consistency and data integrity (IMU, wheel-speed, yaw-rate). Delivered end-to-end from concept to integration and tests with system/software/test/customer teams.",
+    projectsCount: 1,
     responsibilities: [
-      "C++ implementation of state estimation algorithms (Kalman filters)",
-      "Interface definition and I/O specification",
-      "SIL strategy and validation for stability and data integrity",
-      "End-to-end delivery from concept to integration with system/software/test/customer teams",
+      "Design/implement estimation algorithms (C++, ASCET)",
+      "Define interfaces and verification strategies (SIL)",
+      "Ensure signal/data integrity and stability",
+      "Integrate and test with cross-functional teams",
     ],
     achievements: [
-      "Ported functionality from ASCET to C++ and delivered validated C++ implementation.",
+      "Migrated a function from ASCET to modern C++ and validated it through the SIL pipeline.",
     ],
-    images: [ { src: "vmc.jpg", alt: "Vehicle motion controller" } ],
+    images: [{ src: "vmc.jpg", alt: "Vehicle Motion Controller visualization" }],
   },
   {
     id: "ts-brakes",
-    company: "Technology & Strategy GmbH (consulting for Robert Bosch GmbH)",
+    company: "Technology & Strategy (onsite at Bosch)",
     logos: ["ts_logo.png", "bosch_logo.png"],
+    oemLogos: ["oem_jlr.png", "oem_volvo.png", "oem_geely.png"],
     location: "Abstatt, Germany",
     role: "Function Developer – Active Safety Brake Systems",
     period: "09/2015 — 05/2018",
     summary:
-      "Developed longitudinal and standstill functions plus Sensor Signal Processing (SSP) for Active Safety Brake Systems (Volvo, Geely, JLR) using model-based development (ASCET) on embedded ECUs. Defined requirements, states, interfaces, and safety behavior to ISO 26262 (up to ASIL D), worked per Automotive SPICE and V-model with documented reviews.",
-    projectsCount: 4,
+      "Developed longitudinal and hold functions and sensor signal processing (SSP) for Active Safety Brake Systems (Volvo, Geely, JLR) using ASCET on embedded ECUs. Defined requirements, states, interfaces, and safety behavior up to ASIL D under ISO 26262; followed ASPICE and V-model with documented artefacts/reviews. Built HIL and vehicle test strategies to assure behavior, timing, and reliability; supported integration, change management, and planning.",
+    projectsCount: 3,
     responsibilities: [
-      "Model-based function development in ASCET on embedded ECUs",
-      "ISO 26262 compliance (up to ASIL D); ASPICE/V-model artifacts",
-      "System V&V strategy with HIL and on-road tests; ensure timing and reliability",
-      "Customer interface for integration, change management, and planning",
+      "Model-based function development (ASCET) for safety systems",
+      "Requirements and safety definition (ISO 26262 up to ASIL D)",
+      "HIL/vehicle test strategy and execution",
+      "Customer-support for integration and planning",
     ],
     achievements: [
-      "Presented a complex Bosch functional safety concept to Volvo in a large workshop; clarified critical points and agreed on a joint approach.",
+      "Prepared and presented a complex Bosch functional safety concept in a large Volvo workshop; clarified critical points and agreed on a joint approach.",
     ],
-    images: [ { src: "brakes.jpg", alt: "Active safety braking" } ],
+    images: [{ src: "brakes.jpg", alt: "Brake system functional diagram" }],
   },
 ];
 
 // ---------------------------
-// Skills (same structure as System Engineer, tailored for SW)
+// Skills (same detailed structure you used before)
 // ---------------------------
 const skills = {
   system: [
@@ -206,7 +214,7 @@ const skills = {
 };
 
 // ---------------------------
-// Certifications (sample from earlier)
+// Certifications
 // ---------------------------
 const certifications = [
   {
@@ -233,6 +241,18 @@ const certifications = [
     issued: "29.03.2025",
     url: "https://www.coursera.org/account/accomplishments/verify/VKV1YIV0BOYZ",
   },
+  {
+    title: "Self Driving Car Engineer",
+    issuer: "Udacity",
+    issued: "24.04.2019",
+    url: "https://www.udacity.com/certificate/JKPPUEPE",
+  },
+  {
+    title: "Modelling and Simulation using MATLAB®",
+    issuer: "iversity",
+    issued: "30.08.2014",
+    url: "https://iversity.org/verify/KtLtEL",
+  },
 ];
 
 // ---------------------------
@@ -246,7 +266,7 @@ const values = [
 ];
 
 // ---------------------------
-// Hobbies (Cricket & Go-Karting)
+// Hobbies (Cricket & Go-Karting, fixed image layout)
 // ---------------------------
 const hobbies = [
   {
@@ -264,10 +284,11 @@ const hobbies = [
 ];
 
 // ---------------------------
-// Router
+// Tiny Router
 // ---------------------------
 const useHashRoute = () => {
   const [hash, setHash] = useState(() => (typeof window !== "undefined" ? window.location.hash : "#"));
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.location.hash === "") setHash("#");
@@ -278,9 +299,7 @@ const useHashRoute = () => {
   return hash;
 };
 
-// ---------------------------
-// Animations
-// ---------------------------
+// Animation variants
 const pageVariants = {
   initial: { opacity: 0, y: 8 },
   in: { opacity: 1, y: 0 },
@@ -347,6 +366,7 @@ const HomePage = () => (
             href={c.href}
             target="_blank"
             rel="noreferrer noopener"
+            aria-label={c.label}
             className="inline-flex items-center rounded-full border border-[#2b4a86] px-4 py-2 text-sm text-white/90 hover:bg-[#132a55] transition-colors"
           >
             {c.label}
@@ -358,36 +378,32 @@ const HomePage = () => (
     {/* Experience Section */}
     <Card className="bg-[#0e2247]/60 border border-[#223d74] mt-6 p-8">
       <SectionTitle title="Work Experience" className="!mt-0 text-2xl" />
-      {experiences.length === 0 ? (
-        <p className="text-white/80">Coming soon.</p>
-      ) : (
-        <div className="grid md:grid-cols-2 gap-4">
-          {experiences.map((exp) => (
-            <a
-              key={exp.id}
-              href={`#experience/${exp.id}`}
-              className="flex items-center gap-4 rounded-xl border border-[#223d74] bg-[#0e2247]/40 p-4 hover:bg-[#132a55] transition-colors"
-            >
-              {/* Logos */}
-              <div className="flex items-center gap-2">
-                {(exp.logos ?? []).map((logo, i) => (
-                  <SafeImg
-                    key={i}
-                    src={logo}
-                    alt={`${exp.company} logo ${i + 1}`}
-                    className="w-10 h-10 rounded-md object-contain bg-white p-1"
-                  />
-                ))}
-              </div>
-              <div>
-                <h3 className="font-semibold text-white text-lg">{exp.role}</h3>
-                <p className="text-sm text-white/85">{exp.company}</p>
-                <p className="text-xs text-white/60">{exp.period} • Projects: {exp.projectsCount}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      )}
+      <div className="grid md:grid-cols-2 gap-4">
+        {experiences.map((exp) => (
+          <a
+            key={exp.id}
+            href={`#experience/${exp.id}`}
+            className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 rounded-xl border border-[#223d74] bg-[#0e2247]/40 p-4 hover:bg-[#132a55] transition-colors"
+          >
+            {/* Logos block – supports single or multiple logos */}
+            <div className="flex items-center gap-2">
+              {(exp.logos ?? []).map((logo, i) => (
+                <SafeImg
+                  key={i}
+                  src={logo}
+                  alt={`${exp.company} logo ${i + 1}`}
+                  className="w-10 h-10 rounded-md object-contain bg-white p-1"
+                />
+              ))}
+            </div>
+            <div className="sm:flex-1">
+              <h3 className="font-semibold text-white text-lg">{exp.role}</h3>
+              <p className="text-sm text-white/85">{exp.company}</p>
+              <p className="text-xs text-white/60">{exp.period} • Projects: {exp.projectsCount}</p>
+            </div>
+          </a>
+        ))}
+      </div>
     </Card>
   </Container>
 );
@@ -424,23 +440,35 @@ const ExperienceDetailPage = ({ experienceId }) => {
         <p className="text-xs text-white/60">{exp.period} • Projects: {exp.projectsCount}</p>
         <p className="mt-3 text-white/90 leading-relaxed">{exp.summary}</p>
 
-        {exp.responsibilities && exp.responsibilities.length > 0 && (
+        {exp.oemLogos?.length > 0 && (
           <>
-            <SectionTitle title="Responsibilities" className="!mt-4" />
-            <ul className="list-disc ml-6 space-y-1 text-white/90">
-              {exp.responsibilities.map((r, i) => <li key={i}>{r}</li>)}
-            </ul>
+            <SectionTitle title="Customer OEMs" className="!mt-4" />
+            <div className="flex flex-wrap items-center gap-3">
+              {exp.oemLogos.map((logo, i) => (
+                <SafeImg
+                  key={i}
+                  src={logo}
+                  alt={`OEM logo ${i + 1}`}
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain bg-white rounded-md p-1 border border-[#223d74]"
+                />
+              ))}
+            </div>
           </>
         )}
 
-        {exp.achievements && exp.achievements.length > 0 && (
-          <>
-            <SectionTitle title="Achievements" className="!mt-4" />
-            <ul className="list-disc ml-6 space-y-1 text-white/90">
-              {exp.achievements.map((a, i) => <li key={i}>{a}</li>)}
-            </ul>
-          </>
-        )}
+        <SectionTitle title="Responsibilities" className="!mt-4" />
+        <ul className="list-disc ml-6 space-y-1 text-white/90">
+          {exp.responsibilities.map((r, i) => (
+            <li key={i}>{r}</li>
+          ))}
+        </ul>
+
+        <SectionTitle title="Achievements" className="!mt-4" />
+        <ul className="list-disc ml-6 space-y-1 text-white/90">
+          {exp.achievements.map((a, i) => (
+            <li key={i}>{a}</li>
+          ))}
+        </ul>
 
         {exp.images?.length > 0 && (
           <>
@@ -458,7 +486,9 @@ const ExperienceDetailPage = ({ experienceId }) => {
           </>
         )}
         <div className="mt-6">
-          <a href="#experience" className="text-sm text-white/70 hover:underline">← Back to Experience List</a>
+          <a href="#experience" className="text-sm text-white/70 hover:underline">
+            ← Back to Experience List
+          </a>
         </div>
       </Card>
     </Container>
@@ -504,9 +534,6 @@ const SkillsPage = () => {
   );
 };
 
-// ---------------------------
-// Certifications Page
-// ---------------------------
 const CertificationsPage = () => (
   <Container>
     <SectionTitle title="Certifications" />
@@ -533,9 +560,6 @@ const CertificationsPage = () => (
   </Container>
 );
 
-// ---------------------------
-// Values Page
-// ---------------------------
 const ValuesPage = () => (
   <Container>
     <SectionTitle title="Personal Values & Goals" />
@@ -550,22 +574,19 @@ const ValuesPage = () => (
   </Container>
 );
 
-// ---------------------------
-// Hobbies Page
-// ---------------------------
 const HobbiesPage = () => (
   <Container>
     <SectionTitle title="Hobbies & Free Time" />
     <div className="grid md:grid-cols-2 gap-4">
       {hobbies.map((h) => (
         <Card key={h.id}>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
             <SafeImg
               src={h.image}
               alt={`${h.title} image`}
-              className="w-24 h-24 rounded-lg object-cover border border-[#223d74]"
+              className="w-full sm:w-40 h-28 sm:h-28 rounded-lg object-cover border border-[#223d74]"
             />
-            <div>
+            <div className="text-center sm:text-left">
               <h4 className="font-semibold text-white">{h.title}</h4>
               <p className="text-sm text-white/90 mt-2 leading-relaxed">{h.text}</p>
             </div>
@@ -576,15 +597,12 @@ const HobbiesPage = () => (
   </Container>
 );
 
-// ---------------------------
-// Contact Page
-// ---------------------------
 const ContactPage = () => (
   <Container>
     <SectionTitle title="Contact Me" />
     <Card>
       <p className="text-white/90 leading-relaxed">
-        I’m currently available for challenging software roles in automotive and embedded systems, especially ADAS and safety-critical applications. Feel free to reach out to discuss opportunities or collaborations.
+        I’m currently available for challenging roles in software development for safety-critical embedded systems. Feel free to reach out to discuss potential opportunities or collaborations.
       </p>
       <div className="mt-4 flex flex-wrap gap-3">
         <a
@@ -608,7 +626,7 @@ const ContactPage = () => (
 );
 
 // ---------------------------
-// App Shell
+// App Shell with Equal-Spaced Tabs
 // ---------------------------
 const useActive = (hash, h) => {
   const normalizedHash = hash === "" ? "#" : hash;
@@ -617,6 +635,9 @@ const useActive = (hash, h) => {
 
 const App = () => {
   const hash = useHashRoute();
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const page = useMemo(() => {
     if (hash === "#" || hash === "") return <HomePage />;
@@ -646,10 +667,10 @@ const App = () => {
           </div>
         </Container>
 
-        {/* Tabs */}
+        {/* Equal-spaced tabs */}
         <nav className="bg-[#0c1f40] border-t border-[#34495E]">
           <Container>
-            <div className="grid grid-cols-3 sm:grid-cols-6 text-sm text-white/90">
+            <div className="grid grid-cols-4 sm:grid-cols-6 text-sm text-white/90">
               <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#")}`} href="#">Home</a>
               <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#skills")}`} href="#skills">Skills</a>
               <a className={`text-center py-3 hover:bg-[#132a55] transition-colors ${useActive(hash, "#certs")}`} href="#certs">Certifications</a>
@@ -665,11 +686,11 @@ const App = () => {
       <AnimatePresence mode="wait">
         <motion.main
           key={hash}
-          variants={pageVariants}
-          initial="initial"
-          animate="in"
-          exit="out"
-          transition={{ duration: 0.2 }}
+          variants={prefersReducedMotion ? {} : pageVariants}
+          initial={prefersReducedMotion ? false : "initial"}
+          animate={prefersReducedMotion ? false : "in"}
+          exit={prefersReducedMotion ? false : "out"}
+          transition={prefersReducedMotion ? undefined : { duration: 0.2 }}
           className="flex-1 py-6"
         >
           {page}
